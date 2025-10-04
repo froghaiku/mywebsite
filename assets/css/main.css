@@ -455,27 +455,23 @@ a:hover {
     font-size: 2rem;
   }
 
-  /* Mobile Timeline - Single Column */
+  /* Mobile Timeline - Remove timeline decorations for full width content */
   .timeline {
-    padding-right: 0;
-    padding-left: 60px;
+    padding: 2rem 0;
   }
 
   .timeline::before {
-    left: 20px;
-    right: auto;
+    display: none;
   }
 
   .day-card {
     width: 100%;
-    margin-left: 60px !important;
-    margin-right: 0 !important;
-    padding-left: 2rem;
+    margin: 0 0 2rem 0 !important;
+    padding: 2rem;
   }
 
   .day-card::before {
-    left: -42px !important;
-    right: auto !important;
+    display: none;
   }
 
   .vacation-nav {
