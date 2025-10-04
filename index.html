@@ -15,27 +15,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- Header Navigation -->
+    <header class="vacation-header">
         <div class="container">
-            <div class="hero-content-center">
-                <h1 class="hero-title">Ben Schoeffler</h1>
-                <p class="hero-subtitle">Welcome! This site is currently under construction.</p>
-                <div class="placeholder-links">
-                    <p>Check out some of my projects:</p>
-                    <ul>
-                        <li><a href="/vacation" class="link-accent">Japan & South Korea Trip 2026</a></li>
-                    </ul>
+            <nav class="vacation-nav">
+                <div class="vacation-title">Ben Schoeffler</div>
+                <div class="vacation-nav-links">
+                    <a href="/vacation">Vacation 2026</a>
                 </div>
-            </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="vacation-hero">
+        <div class="container">
+            <h1>Welcome</h1>
+            <p class="subtitle">Personal website & adventures</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 3rem 0; background: white;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Currently Planning</h2>
+            <p>Check out my upcoming <a href="/vacation" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Japan & South Korea Adventure</a> in October 2026.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer-simple">
         <div class="container">
-            <p>&copy; 2025 Ben Schoeffler. All rights reserved.</p>
+            <p>&copy; 2025 Ben Schoeffler</p>
         </div>
     </footer>
+
+    <!-- Minimal JavaScript -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
