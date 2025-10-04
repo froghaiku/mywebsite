@@ -287,10 +287,14 @@ a:hover {
 }
 
 .day-number {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
   line-height: 1;
+}
+
+.day-number::before {
+  content: "Day ";
 }
 
 .day-info h3 {
