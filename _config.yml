@@ -1,0 +1,26 @@
+# Site settings
+title: Ben Schoeffler
+email: contact@benschoeffler.com
+description: >-
+  Personal website of Ben Schoeffler
+baseurl: ""
+url: "https://www.benschoeffler.com"
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+  - korea_japan_itinerary.md
+  - WordSenWebsite copy/
