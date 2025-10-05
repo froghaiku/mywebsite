@@ -72,9 +72,7 @@
     <!-- Why I'm the Perfect Fit Section -->
     <section class="timeline-section" id="fit">
         <div class="container">
-            <div class="section-divider">
-                <h2>Why I'm the Perfect Fit for [JOB TITLE]</h2>
-            </div>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Why I'm the Perfect Fit for [JOB TITLE]</h2>
 
             <div style="max-width: 900px; margin: 0 auto 3rem; text-align: center;">
                 <p>Your job posting outlines specific needs, and I've already delivered results in each of these areas. Here's how my experience directly matches what you're looking for:</p>
@@ -191,9 +189,7 @@
     <!-- Career Path Timeline Section -->
     <section class="timeline-section" id="career" style="background: var(--light-bg);">
         <div class="container">
-            <div class="section-divider">
-                <h2>My Career Journey</h2>
-            </div>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">My Career Journey</h2>
 
             <div style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
                 <p>Each role has built on the last, developing the skills and perspective that make me ready for this next challenge.</p>
@@ -291,30 +287,33 @@
 
     <!-- Hobbies & Side Projects Section -->
     <section id="hobbies" style="padding: 4rem 0; background: white;">
-        <div class="container" style="max-width: 1000px;">
+        <div class="container" style="max-width: 900px;">
             <h2 style="text-align: center; margin-bottom: 3rem;">Hobbies & Side Projects</h2>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="hobbies-grid">
 
                 <!-- WordSen -->
-                <div class="hobby-card">
-                    <img src="/assets/images/career/wordsen.png" alt="WordSen Logo" class="hobby-logo">
+                <div class="hobby-column">
+                    <img src="/assets/images/career/wordsen.png" alt="WordSen Logo" class="hobby-logo-simple">
                     <h3>WordSen</h3>
                     <p class="hobby-subtitle">Japanese Learning iOS App</p>
                     <p>Developing an iOS app using AI prompt engineering to help people learn Japanese. Hands-on experience with mobile development, AI integration, and product design.</p>
                 </div>
 
-                <!-- Motorcycle Website (Past) -->
-                <div class="hobby-card">
-                    <div class="hobby-icon">🏍️</div>
-                    <h3>Motorcycle Safety Website</h3>
-                    <p class="hobby-subtitle">Web Development Project</p>
-                    <p>Built and grew a motorcycle safety website to thousands of daily visitors. Successfully sold for a five-figure sum. Demonstrated ability to create valuable content and build an audience.</p>
+                <!-- Cellist -->
+                <div class="hobby-column">
+                    <div class="hobby-icon-simple">🎻</div>
+                    <h3>Cellist</h3>
+                    <p class="hobby-subtitle">Adult Learner</p>
+                    <p>Four years into learning the cello as an adult. The discipline and patience required to master a complex skill mirrors the approach I bring to professional challenges—persistent, methodical, and always improving.</p>
                 </div>
 
-                <!-- Can add more hobbies/projects here -->
-                <div class="hobby-card" style="background: var(--light-bg); border: 2px dashed var(--accent-color); display: flex; align-items: center; justify-content: center; min-height: 200px;">
-                    <p style="text-align: center; color: var(--text-light); margin: 0;"><em>More projects & hobbies<br>coming soon...</em></p>
+                <!-- Motorcycle Website (Past) -->
+                <div class="hobby-column">
+                    <div class="hobby-icon-simple">🏍️</div>
+                    <h3>Motorcycle Safety Website</h3>
+                    <p class="hobby-subtitle">Web Development Project</p>
+                    <p>Built and grew a motorcycle safety website to thousands of daily visitors. Successfully sold for a five-figure sum, demonstrating ability to create valuable content and build an audience.</p>
                 </div>
 
             </div>
@@ -537,12 +536,14 @@
         /* Career Path Timeline Styles - Center Line with Alternating Cards */
         .timeline.career-timeline {
             padding-right: 0;
+            padding-top: 0;
         }
 
         .timeline.career-timeline::before {
             left: 50%;
             right: auto;
             transform: translateX(-50%);
+            top: 200px;
         }
 
         .career-card {
@@ -743,37 +744,45 @@
             line-height: 1.6;
         }
 
-        /* Hobbies & Side Projects Styles */
-        .hobby-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+        /* Hobbies & Side Projects Styles - 3 Column Grid with Dividers */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .hobby-column {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0 1.5rem;
+            position: relative;
         }
 
-        .hobby-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        .hobby-column:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1.5rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--accent-color);
+            opacity: 0.3;
         }
 
-        .hobby-logo {
-            width: 80px;
-            height: 80px;
+        .hobby-logo-simple {
+            width: 70px;
+            height: 70px;
             object-fit: contain;
             margin: 0 auto 1rem;
             display: block;
-            border-radius: 8px;
         }
 
-        .hobby-icon {
-            font-size: 4rem;
+        .hobby-icon-simple {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
-        .hobby-card h3 {
-            font-size: 1.3rem;
+        .hobby-column h3 {
+            font-size: 1.2rem;
             color: var(--text-dark);
             margin-bottom: 0.5rem;
         }
@@ -781,14 +790,16 @@
         .hobby-subtitle {
             color: var(--accent-color);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1rem !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .hobby-card p {
-            font-size: 0.95rem;
+        .hobby-column p {
+            font-size: 0.9rem;
             color: var(--text-medium);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* Mobile Responsive */
@@ -841,6 +852,16 @@
             }
 
             .timeline.career-timeline::before {
+                display: none;
+            }
+
+            /* Hobbies mobile - stack vertically */
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hobby-column:not(:last-child)::after {
                 display: none;
             }
         }
