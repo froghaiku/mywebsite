@@ -30,6 +30,7 @@
                     <a href="#fit">Perfect Fit</a>
                     <a href="#story">My Story</a>
                     <a href="#career">Career Path</a>
+                    <a href="#hobbies">Hobbies & Projects</a>
                     <a href="#numbers">By the Numbers</a>
                     <a href="#connect">Connect</a>
                 </div>
@@ -198,7 +199,7 @@
                 <p>Each role has built on the last, developing the skills and perspective that make me ready for this next challenge.</p>
             </div>
 
-            <div class="timeline">
+            <div class="timeline career-timeline">
 
                 <!-- Future Role - Target Position -->
                 <div class="career-card career-card-future">
@@ -269,21 +270,6 @@
                     </div>
                 </div>
 
-                <!-- WordSen Project -->
-                <div class="career-card">
-                    <div class="career-header">
-                        <img src="/assets/images/career/wordsen.png" alt="WordSen Logo" class="career-logo">
-                        <div class="career-info">
-                            <h3>WordSen</h3>
-                            <p class="career-company">Japanese Learning iOS App</p>
-                            <p class="career-date">Current Side Project</p>
-                        </div>
-                    </div>
-                    <div class="career-content">
-                        <p>Developing iOS app using AI prompt engineering for Japanese language learning. Hands-on technical development experience.</p>
-                    </div>
-                </div>
-
                 <!-- Coaching & Podcast -->
                 <div class="career-card">
                     <div class="career-header">
@@ -297,6 +283,38 @@
                     <div class="career-content">
                         <p>Client-based coaching practice for anxiety and sports performance. Podcast reached 500,000 downloads over 100 episodes.</p>
                     </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies & Side Projects Section -->
+    <section id="hobbies" style="padding: 4rem 0; background: white;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Hobbies & Side Projects</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+                <!-- WordSen -->
+                <div class="hobby-card">
+                    <img src="/assets/images/career/wordsen.png" alt="WordSen Logo" class="hobby-logo">
+                    <h3>WordSen</h3>
+                    <p class="hobby-subtitle">Japanese Learning iOS App</p>
+                    <p>Developing an iOS app using AI prompt engineering to help people learn Japanese. Hands-on experience with mobile development, AI integration, and product design.</p>
+                </div>
+
+                <!-- Motorcycle Website (Past) -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">🏍️</div>
+                    <h3>Motorcycle Safety Website</h3>
+                    <p class="hobby-subtitle">Web Development Project</p>
+                    <p>Built and grew a motorcycle safety website to thousands of daily visitors. Successfully sold for a five-figure sum. Demonstrated ability to create valuable content and build an audience.</p>
+                </div>
+
+                <!-- Can add more hobbies/projects here -->
+                <div class="hobby-card" style="background: var(--light-bg); border: 2px dashed var(--accent-color); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <p style="text-align: center; color: var(--text-light); margin: 0;"><em>More projects & hobbies<br>coming soon...</em></p>
                 </div>
 
             </div>
@@ -516,16 +534,26 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Career Path Timeline Styles */
+        /* Career Path Timeline Styles - Center Line with Alternating Cards */
+        .timeline.career-timeline {
+            padding-right: 0;
+        }
+
+        .timeline.career-timeline::before {
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+        }
+
         .career-card {
             position: relative;
             background: var(--card-bg);
             border-radius: var(--border-radius);
             padding: 2rem;
             margin-bottom: 3rem;
-            margin-right: 60px;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(50% - 30px);
         }
 
         .career-card:hover {
@@ -533,12 +561,23 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
-        /* Timeline Dot for Career Cards */
+        /* Left aligned cards (odd) */
+        .career-card:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* Right aligned cards (even) */
+        .career-card:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Timeline Dot - Center */
         .career-card::before {
             content: '';
             position: absolute;
             top: 2rem;
-            right: -42px;
             width: 20px;
             height: 20px;
             background: var(--accent-color);
@@ -547,18 +586,34 @@
             box-shadow: 0 0 0 3px var(--light-bg);
         }
 
+        /* Dot on right side for left cards */
+        .career-card:nth-child(odd)::before {
+            right: -40px;
+        }
+
+        /* Dot on left side for right cards */
+        .career-card:nth-child(even)::before {
+            left: -40px;
+        }
+
         /* Special styling for future role card */
         .career-card-future {
             background: linear-gradient(135deg, rgba(221, 98, 69, 0.05), rgba(221, 98, 69, 0.1));
             border: 2px solid var(--accent-color);
             box-shadow: 0 10px 30px rgba(221, 98, 69, 0.2);
+            width: 100%;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
         }
 
         .career-card-future::before {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             width: 24px;
             height: 24px;
-            right: -44px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            top: -14px;
             animation: pulse 2s infinite;
         }
 
@@ -679,6 +734,54 @@
             line-height: 1.6;
         }
 
+        /* Hobbies & Side Projects Styles */
+        .hobby-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .hobby-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin: 0 auto 1rem;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .hobby-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-subtitle {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem !important;
+        }
+
+        .hobby-card p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .fit-grid {
@@ -713,9 +816,11 @@
                 font-size: 0.85rem;
             }
 
-            /* Career cards mobile */
+            /* Career cards mobile - full width, no alternating */
             .career-card {
-                margin-right: 0;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
             }
 
             .career-card::before {
@@ -723,6 +828,10 @@
             }
 
             .career-card-future::before {
+                display: none;
+            }
+
+            .timeline.career-timeline::before {
                 display: none;
             }
         }
