@@ -341,6 +341,23 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+/* Location-specific colors matching calendar */
+.location-seoul {
+  background: #dd6245;
+}
+
+.location-tokyo {
+  background: #667eea;
+}
+
+.location-takayama {
+  background: #764ba2;
+}
+
+.location-transit {
+  background: #718096;
+}
+
 /* Image Placeholder */
 .day-image {
   width: 100%;
