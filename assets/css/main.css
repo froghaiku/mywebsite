@@ -523,4 +523,15 @@ a:hover {
   .day-image {
     height: 200px;
   }
+
+  .itinerary-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Itinerary Grid */
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
