@@ -246,10 +246,9 @@
                     </div>
                     <div class="career-content">
                         <div class="promotion-timeline">
-                            <div class="promotion-role">
-                                <div class="promotion-arrow">↑</div>
+                            <div class="promotion-role promotion-role-top">
                                 <div class="promotion-details">
-                                    <strong>Support Operations Lead</strong> <span class="promotion-dates">(2022-2023)</span>
+                                    <strong class="top-role">Support Operations Lead</strong> <span class="promotion-dates">(2022-2023)</span>
                                     <p>Led AI integration saving 400+ hours monthly. Managed department strategy and 400+ page knowledge base.</p>
                                 </div>
                             </div>
@@ -261,6 +260,7 @@
                                 </div>
                             </div>
                             <div class="promotion-role">
+                                <div class="promotion-arrow">↑</div>
                                 <div class="promotion-details">
                                     <strong>Technical Product Specialist</strong> <span class="promotion-dates">(2017-2020)</span>
                                     <p>Resolved 12,000+ tickets, consistently top 5 performer. Promoted to specialized billing/deliverability team.</p>
@@ -601,9 +601,9 @@
             background: linear-gradient(135deg, rgba(221, 98, 69, 0.05), rgba(221, 98, 69, 0.1));
             border: 2px solid var(--accent-color);
             box-shadow: 0 10px 30px rgba(221, 98, 69, 0.2);
-            width: 100%;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
+            width: 50%;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .career-card-future::before {
@@ -613,7 +613,8 @@
             left: 50%;
             right: auto;
             transform: translateX(-50%);
-            top: -14px;
+            bottom: -14px;
+            top: auto;
             animation: pulse 2s infinite;
         }
 
@@ -716,9 +717,17 @@
             flex: 1;
         }
 
+        .promotion-role-top .promotion-details {
+            padding-left: 0;
+        }
+
         .promotion-details strong {
             color: var(--text-dark);
             font-size: 1.05rem;
+        }
+
+        .promotion-details strong.top-role {
+            font-size: 1.2rem;
         }
 
         .promotion-dates {
