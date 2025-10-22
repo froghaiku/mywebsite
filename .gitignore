@@ -22,3 +22,7 @@ vendor/
 
 # Node (if needed later)
 node_modules/
+
+# Personal files - do not publish
+Background/
+.claude/
