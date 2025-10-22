@@ -26,3 +26,6 @@ node_modules/
 # Personal files - do not publish
 Background/
 .claude/
+
+# Job application notes (private)
+**/NOTES.md
