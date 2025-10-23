@@ -1,0 +1,11 @@
+# Allow all crawlers by default
+User-agent: *
+
+# Block job application directories (format: MMDD-CompanyName)
+Disallow: /[0-9][0-9][0-9][0-9]-*/
+
+# Specific job directories to block
+Disallow: /1022-Vanta/
+
+# Allow everything else
+Allow: /
