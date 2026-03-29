@@ -256,6 +256,13 @@ section:nth-child(even) { background: var(--bg-warm); }
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 2;
 }
+.cal-day.lost {
+    background: repeating-linear-gradient(45deg, rgba(160,147,125,0.15), rgba(160,147,125,0.15) 3px, rgba(160,147,125,0.08) 3px, rgba(160,147,125,0.08) 6px) !important;
+    color: var(--text-light) !important;
+    cursor: default;
+    opacity: 0.7;
+}
+.cal-day.lost:hover { transform: none; box-shadow: none; }
 .cal-day .cal-label {
     font-size: 0.58rem;
     font-weight: 700;
@@ -777,6 +784,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <a href="#calendar" class="nav-link">Calendar</a>
         <a href="#who" class="nav-link">Crew</a>
         <a href="#itinerary" class="nav-link">Itinerary</a>
+        <a href="#booking" class="nav-link">Book</a>
         <a href="#stays" class="nav-link">Stays</a>
         <a href="#cost" class="nav-link">Cost</a>
         <a href="#info" class="nav-link">Info</a>
@@ -796,11 +804,9 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         </p>
         <div class="hero-meta">
             <div><strong id="countdown">Loading...</strong></div>
-            <div>Seoul <strong id="seoul-time">--:--</strong></div>
-            <div>Tokyo <strong id="tokyo-time">--:--</strong></div>
         </div>
         <div style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-light); display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.5rem;">
-            <span>Nov 1 (Sun) depart → Nov 16 (Mon) arrive home</span>
+            <span>Nov 1 (Sun) depart → Nov 15 (Sun) arrive home</span>
             <span>·</span>
             <span><strong style="color:var(--accent);">9 PTO days</strong> needed (8 if Veterans Day is off for you)</span>
         </div>
@@ -880,19 +886,28 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <h2 class="section-title">Day by Day</h2>
         <p class="section-sub">the full adventure, one day at a time</p>
 
+        <!-- ── LOST DAY ── -->
+        <div class="day-card transit" id="day-lost" style="opacity:0.7; border-left-color:var(--transit); background:repeating-linear-gradient(45deg, #fff, #fff 6px, #faf5ef 6px, #faf5ef 12px);">
+            <div class="day-top">
+                <div class="day-date-line">Mon, Nov 2 · <span class="badge transit">👻 Date Line</span></div>
+            </div>
+            <div class="day-info"><h3>The Lost Day</h3></div>
+            <p class="day-summary">Flying west across the International Date Line, Monday disappears! You depart Sunday evening and arrive Tuesday. This is normal — you get the day back on the return trip.</p>
+        </div>
+
         <!-- ── SEOUL ── -->
         <div class="city-header">
             <img src="/assets/images/vacation/Ikseon-dong-6.jpg" alt="Seoul">
             <div>
                 <h3>Seoul, South Korea</h3>
-                <span class="city-dates caveat">Days 1–5 · Nov 2–6</span>
+                <span class="city-dates caveat">Days 1–5 · Nov 3–7</span>
             </div>
         </div>
 
         <!-- Day 1 -->
         <div class="day-card seoul" id="day1">
             <div class="day-top">
-                <div class="day-date-line">Mon, Nov 2 · <span class="badge seoul">Seoul</span></div>
+                <div class="day-date-line">Tue, Nov 3 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-1"></div>
             </div>
             <div class="day-info"><h3>Arrival & Recovery</h3></div>
@@ -915,13 +930,16 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                         </ul>
                     </div>
                 </div>
+                <div style="margin-top:0.75rem; padding:0.75rem; background:var(--bg-warm); border-radius:var(--r-sm); font-size:0.82rem;">
+                    <strong style="color:var(--accent);">💪 If you have extra energy:</strong> Walk to <a href="https://www.google.com/maps/search/?api=1&query=Gwangjang+Market+Seoul" target="_blank" rel="noopener">Gwangjang Market</a> for a preview — the evening stalls are incredible, and you'll go back tomorrow for the full experience. Or explore <a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Seoul" target="_blank" rel="noopener">Myeongdong</a> for some street food and K-beauty window shopping.
+                </div>
             </details>
         </div>
 
         <!-- Day 2 -->
         <div class="day-card seoul" id="day2">
             <div class="day-top">
-                <div class="day-date-line">Tue, Nov 3 · <span class="badge seoul">Seoul</span></div>
+                <div class="day-date-line">Wed, Nov 4 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-2"></div>
             </div>
             <div class="day-info"><h3>Markets & Traditional Seoul</h3></div>
@@ -954,7 +972,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 3 -->
         <div class="day-card seoul" id="day3">
             <div class="day-top">
-                <div class="day-date-line">Wed, Nov 4 · <span class="badge seoul">Seoul</span></div>
+                <div class="day-date-line">Thu, Nov 5 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-3"></div>
             </div>
             <div class="day-info"><h3>K-Beauty & Vintage</h3></div>
@@ -986,7 +1004,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 4 -->
         <div class="day-card seoul" id="day4">
             <div class="day-top">
-                <div class="day-date-line">Thu, Nov 5 · <span class="badge seoul">Seoul</span></div>
+                <div class="day-date-line">Fri, Nov 6 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-4"></div>
             </div>
             <div class="day-info"><h3>Tattoo Day</h3></div>
@@ -1014,7 +1032,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 5 -->
         <div class="day-card seoul" id="day5">
             <div class="day-top">
-                <div class="day-date-line">Fri, Nov 6 · <span class="badge seoul">Gapyeong Day Trip</span></div>
+                <div class="day-date-line">Sat, Nov 7 · <span class="badge seoul">Gapyeong Day Trip</span></div>
                 <div class="day-wx" id="wx-5"></div>
             </div>
             <div class="day-info"><h3>Nami Island & Gardens</h3></div>
@@ -1044,7 +1062,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 6 (Transit) -->
         <div class="day-card transit" id="day6">
             <div class="day-top">
-                <div class="day-date-line">Sat, Nov 7 · <span class="badge transit">Transit</span></div>
+                <div class="day-date-line">Sun, Nov 8 · <span class="badge transit">Transit</span></div>
                 <div class="day-wx" id="wx-6"></div>
             </div>
             <div class="day-info"><h3>Seoul → Tokyo</h3></div>
@@ -1074,14 +1092,14 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             <img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Tokyo">
             <div>
                 <h3>Tokyo, Japan</h3>
-                <span class="city-dates caveat">Days 7–9 · Nov 8–10</span>
+                <span class="city-dates caveat">Days 7–9 · Nov 9–11</span>
             </div>
         </div>
 
         <!-- Day 7 -->
         <div class="day-card tokyo" id="day7">
             <div class="day-top">
-                <div class="day-date-line">Sun, Nov 8 · <span class="badge tokyo">Tokyo</span></div>
+                <div class="day-date-line">Mon, Nov 9 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-7"></div>
             </div>
             <div class="day-info"><h3>Vintage & Books</h3></div>
@@ -1111,7 +1129,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 8 -->
         <div class="day-card tokyo" id="day8">
             <div class="day-top">
-                <div class="day-date-line">Mon, Nov 9 · <span class="badge tokyo">Tokyo</span></div>
+                <div class="day-date-line">Tue, Nov 10 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-8"></div>
             </div>
             <div class="day-info"><h3>Tokyo Disneyland!</h3></div>
@@ -1143,7 +1161,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 9 -->
         <div class="day-card tokyo" id="day9">
             <div class="day-top">
-                <div class="day-date-line">Tue, Nov 10 · <span class="badge tokyo">Tokyo</span></div>
+                <div class="day-date-line">Wed, Nov 11 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-9"></div>
             </div>
             <div class="day-info"><h3>Classic Tokyo</h3></div>
@@ -1175,7 +1193,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 10 (Transit) -->
         <div class="day-card transit" id="day10">
             <div class="day-top">
-                <div class="day-date-line">Wed, Nov 11 · <span class="badge transit">Tokyo → Gujo</span></div>
+                <div class="day-date-line">Thu, Nov 12 · <span class="badge transit">Tokyo → Gujo</span></div>
                 <div class="day-wx" id="wx-10"></div>
             </div>
             <div class="day-info"><h3>Into the Mountains</h3></div>
@@ -1205,14 +1223,14 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             <img src="/assets/images/vacation/Takayama.jpg" alt="Mountains">
             <div>
                 <h3>Gujo Hachiman & Takayama</h3>
-                <span class="city-dates caveat">Days 11–13 · Nov 12–14</span>
+                <span class="city-dates caveat">Days 11–12 · Nov 13–14</span>
             </div>
         </div>
 
         <!-- Day 11 -->
         <div class="day-card gujo" id="day11">
             <div class="day-top">
-                <div class="day-date-line">Thu, Nov 12 · <span class="badge gujo">Gujo Hachiman</span></div>
+                <div class="day-date-line">Fri, Nov 13 · <span class="badge gujo">Gujo Hachiman</span></div>
                 <div class="day-wx" id="wx-11"></div>
             </div>
             <div class="day-info"><h3>Koi Fish Town</h3></div>
@@ -1242,11 +1260,11 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 12 -->
         <div class="day-card takayama" id="day12">
             <div class="day-top">
-                <div class="day-date-line">Fri, Nov 13 · <span class="badge takayama">Takayama</span></div>
+                <div class="day-date-line">Sat, Nov 14 · <span class="badge takayama">Takayama → Tokyo</span></div>
                 <div class="day-wx" id="wx-12"></div>
             </div>
-            <div class="day-info"><h3>Little Kyoto of the Mountains</h3></div>
-            <p class="day-summary">Morning markets → sake brewery tastings → Hida beef lunch → old town streets</p>
+            <div class="day-info"><h3>Takayama & Farewell Tokyo</h3></div>
+            <p class="day-summary">Morning markets & sake in Takayama → afternoon train to Tokyo → farewell evening</p>
             <div class="day-photo"><img src="/assets/images/vacation/Takayama%20Morning%20Markets.jpg" alt="Takayama"><span class="caption">Miyagawa Morning Market</span></div>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1256,7 +1274,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                         <ul>
                             <li data-icon="🍡"><a href="https://www.google.com/maps/search/?api=1&query=Miyagawa+Morning+Market+Takayama" target="_blank" rel="noopener">Miyagawa Market</a> — gohei mochi, beef croquettes, cookie cup coffee</li>
                             <li data-icon="🥩"><a href="https://www.google.com/maps/search/?api=1&query=Hidagyu+Maruaki+Takayama" target="_blank" rel="noopener">Hidagyu Maruaki</a> — Hida beef yakiniku (they own the farm!)</li>
-                            <li data-icon="🥩"><a href="https://www.google.com/maps/search/?api=1&query=Kitchen+Hida+Takayama" target="_blank" rel="noopener">Kitchen Hida</a> — A5 Tobigyu grade teppan steak</li>
+                            <li data-icon="🍢"><a href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Memory+Lane+Shinjuku+Tokyo" target="_blank" rel="noopener">Omoide Yokocho</a> — farewell yakitori in Tokyo's smoky alleys</li>
                         </ul>
                     </div>
                     <div>
@@ -1265,89 +1283,88 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                             <li data-icon="🍶"><a href="https://www.google.com/maps/search/?api=1&query=Funasaka+Sake+Brewery+Takayama" target="_blank" rel="noopener">Funasaka Brewery</a> — free tastings, year-round</li>
                             <li data-icon="🍶"><a href="https://www.google.com/maps/search/?api=1&query=Hirase+Sake+Brewery+Takayama" target="_blank" rel="noopener">Hirase Brewery</a> — 400 years old, unlimited 30-min tasting</li>
                             <li data-icon="🏘️"><a href="https://www.google.com/maps/search/?api=1&query=Sanmachi+Suji+Takayama" target="_blank" rel="noopener">Sanmachi Suji</a> — Edo-period old town streets</li>
+                            <li data-icon="🐟">One last morning at the koi canals before leaving Gujo</li>
                         </ul>
                     </div>
                 </div>
             </details>
         </div>
 
-        <!-- Day 13 (Transit) -->
+        <!-- Day 13 -->
         <div class="day-card transit" id="day13">
             <div class="day-top">
-                <div class="day-date-line">Sat, Nov 14 · <span class="badge transit">Gujo → Tokyo</span></div>
+                <div class="day-date-line">Sun, Nov 15 · <span class="badge transit">Heading Home</span></div>
                 <div class="day-wx" id="wx-13"></div>
             </div>
-            <div class="day-info"><h3>Back to Tokyo</h3></div>
-            <p class="day-summary">Last morning canal walk → train to Tokyo → final evening together</p>
-            <details class="day-recs">
-                <summary>Eat & Explore</summary>
-                <div class="recs-grid">
-                    <div>
-                        <h4>🍜 Eat Here</h4>
-                        <ul>
-                            <li data-icon="🍢"><a href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Memory+Lane+Shinjuku+Tokyo" target="_blank" rel="noopener">Omoide Yokocho</a> — yakitori in smoky alleys by Shinjuku Station</li>
-                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Ramen+Nagi+Golden+Gai+Shinjuku+Tokyo" target="_blank" rel="noopener">Ramen Nagi</a> — 24hr, perfect post-bar ramen</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>✨ Don't Miss</h4>
-                        <ul>
-                            <li data-icon="🐟">One last look at the koi canals in morning light</li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- ── FINAL DAYS ── -->
-        <div class="city-header">
-            <img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Tokyo">
-            <div>
-                <h3>Final Days</h3>
-                <span class="city-dates caveat">Days 14–15 · Nov 15–16</span>
-            </div>
-        </div>
-
-        <!-- Day 14 -->
-        <div class="day-card tokyo" id="day14">
-            <div class="day-top">
-                <div class="day-date-line">Sun, Nov 15 · <span class="badge tokyo">Tokyo</span></div>
-                <div class="day-wx" id="wx-14"></div>
-            </div>
-            <div class="day-info"><h3>Last Tokyo Day</h3></div>
-            <p class="day-summary">Final shopping → revisit favorites → farewell dinner</p>
-            <details class="day-recs">
-                <summary>Eat & Explore</summary>
-                <div class="recs-grid">
-                    <div>
-                        <h4>🍜 Eat Here</h4>
-                        <ul>
-                            <li data-icon="🍣"><a href="https://www.google.com/maps/search/?api=1&query=Nemuro+Hanamaru+KITTE+Tokyo+Station" target="_blank" rel="noopener">Nemuro Hanamaru</a> — Hokkaido conveyor sushi, 150–500 yen/plate</li>
-                            <li data-icon="🍣"><a href="https://www.google.com/maps/search/?api=1&query=Katsu+Midori+Sushi+Shibuya+Tokyo" target="_blank" rel="noopener">Katsu Midori</a> — big portions, great value in Shibuya</li>
-                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Fuunji+Ramen+Shinjuku+Tokyo" target="_blank" rel="noopener">Fuunji</a> — legendary tsukemen (dipping ramen)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>✨ Don't Miss</h4>
-                        <ul>
-                            <li data-icon="🛍️">Stock up on <strong>Japanese snacks & souvenirs</strong></li>
-                            <li data-icon="🍶">Revisit any favorite spots from earlier</li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Day 15 -->
-        <div class="day-card transit" id="day15">
-            <div class="day-top">
-                <div class="day-date-line">Mon, Nov 16 · <span class="badge transit">Heading Home</span></div>
-                <div class="day-wx" id="wx-15"></div>
-            </div>
             <div class="day-info"><h3>Fly Home</h3></div>
-            <p class="day-summary">Final breakfast → head to airport → fly home. Arrive in the USA same day (thanks, time zones!) ✈️</p>
+            <p class="day-summary">Final breakfast → head to airport → fly home. Arrive in the USA the same day (you gain the day back crossing the date line!) ✈️</p>
         </div>
 
+    </div>
+</section>
+
+<!-- ═══════════════ HOW TO BOOK ═══════════════ -->
+<section id="booking">
+    <div class="container">
+        <h2 class="section-title">Booking Flights & Hotels</h2>
+        <p class="section-sub">everything you need to know</p>
+
+        <!-- Date Line Warning -->
+        <div style="background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); padding:1.5rem; margin-bottom:1.5rem; border-left:4px solid var(--accent);">
+            <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">👻 About the "Lost Day"</h3>
+            <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:0.5rem;">When flying <strong>west</strong> from the US to Asia, you cross the International Date Line and <strong>lose a calendar day</strong>. You depart Sunday evening (Nov 1) and arrive Tuesday (Nov 3) — Monday vanishes. This is normal!</p>
+            <p style="font-size:0.88rem; color:var(--text-mid);">The good news: flying <strong>east</strong> back home, you <strong>gain it back</strong>. Depart Tokyo Sunday morning (Nov 15) and arrive in the US on Sunday (Nov 15). Same day! That's why we only need one night in Tokyo after returning from the mountains.</p>
+        </div>
+
+        <!-- Flights -->
+        <div style="background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); padding:1.5rem; margin-bottom:1.5rem;">
+            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">✈️ Flights</h3>
+            <div style="font-size:0.88rem; color:var(--text-mid); line-height:1.7;">
+                <p style="margin-bottom:0.5rem;"><strong>You need 2 flights:</strong></p>
+                <ul style="margin:0 0 0.75rem 1.2rem;">
+                    <li><strong>Your city → Seoul (Incheon ICN)</strong> — depart evening of Sun, Nov 1. Most West Coast routes connect through Seattle, San Francisco, or LA.</li>
+                    <li><strong>Seoul → Tokyo (Narita NRT or Haneda HND)</strong> — short 2-hour hop on Nov 8. Budget airlines like Jeju Air, T'way, or Peach run $80–$150.</li>
+                    <li><strong>Tokyo → Your city</strong> — depart morning of Sun, Nov 15. You arrive home the same day.</li>
+                </ul>
+                <p style="margin-bottom:0.5rem;"><strong>Tips:</strong></p>
+                <ul style="margin:0 0 0 1.2rem;">
+                    <li>Book the US↔Asia legs as early as possible — prices jump as seats fill</li>
+                    <li>Google Flights is great for comparing. Set up price alerts.</li>
+                    <li>Look for flights routing through Seattle (SEA) — often cheapest from the Pacific Northwest</li>
+                    <li>The Seoul↔Tokyo flight can be booked separately and closer to the date</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kama / Travel Agent -->
+        <div style="background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); padding:1.5rem; margin-bottom:1.5rem;">
+            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">🏨 Hotels — Book Through Our Travel Agent (Free!)</h3>
+            <div style="display:flex; gap:1.25rem; align-items:flex-start; flex-wrap:wrap;">
+                <!-- Photo placeholder -->
+                <div style="width:100px; height:100px; border-radius:50%; background:var(--bg-warm); border:3px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.75rem; color:var(--text-light); text-align:center;">
+                    Photo<br>coming soon
+                </div>
+                <div style="flex:1; min-width:220px; font-size:0.88rem; color:var(--text-mid); line-height:1.7;">
+                    <p style="margin-bottom:0.5rem;">My friend <strong style="color:var(--text);">Kama Hurley</strong> is a part-time travel agent and she's helping us book hotels for this trip. Nicole and I used her for our Vancouver trip and it was great.</p>
+                    <p style="margin-bottom:0.75rem;"><strong>Why book through Kama?</strong></p>
+                    <ul style="margin:0 0 0.75rem 1.2rem;">
+                        <li><strong>It's completely free</strong> — no cost to us</li>
+                        <li>She often gets <strong>better deals or room upgrades</strong> we can't get booking direct</li>
+                        <li>She has access to a travel agent system with <strong>real reviews</strong> so she knows which hotels are actually good (not just what TripAdvisor says)</li>
+                        <li>She'll research options based on your preferences — just tell her your budget, any must-haves, and she does the rest</li>
+                    </ul>
+                    <p style="margin-bottom:0.5rem;">There is genuinely <strong>no downside</strong> to booking through her vs. booking yourself. Same hotels, same cancellation policies, often better prices.</p>
+                </div>
+            </div>
+            <!-- Contact CTA -->
+            <div style="margin-top:1.25rem; background:linear-gradient(135deg, var(--accent), #d4956a); border-radius:var(--r-sm); padding:1.25rem; text-align:center; color:#fff;">
+                <p style="font-family:'Caveat',cursive; font-size:1.3rem; margin-bottom:0.25rem;">Text Kama to get started</p>
+                <p style="font-size:1.8rem; font-weight:700; letter-spacing:0.02em; margin-bottom:0.25rem;">(XXX) XXX-XXXX</p>
+                <p style="font-size:0.78rem; opacity:0.85;">This is her personal number — she's Ben's friend! Just send a text.</p>
+                <p style="font-size:0.78rem; opacity:0.85; margin-top:0.25rem;">Let her know: your budget, dates, and any preferences (location, amenities, etc.)</p>
+            </div>
+            <p style="font-size:0.78rem; color:var(--text-light); margin-top:0.75rem; text-align:center;"><em>Kama may also be able to help with flights — ask her!</em></p>
+        </div>
     </div>
 </section>
 
@@ -1358,58 +1375,42 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <p class="section-sub">updated as we book!</p>
 
         <div class="stays-phase">
-            <h3>Seoul <span class="badge seoul">Nov 2–7 · 5 nights</span></h3>
+            <h3>Seoul <span class="badge seoul">Nov 3–7 · 5 nights</span></h3>
             <div class="stays-grid">
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD</div>
-                    <div class="stay-guests">Ben & Nicole</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD</div>
-                    <div class="stay-guests">Ashley, Marissa</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ben & Nicole</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ashley</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Marissa</div><a href="#" class="stay-link">📍 View on Maps</a></div>
             </div>
         </div>
 
         <div class="stays-phase">
-            <h3>Tokyo <span class="badge tokyo">Nov 8–11 · 3 nights</span></h3>
+            <h3>Tokyo <span class="badge tokyo">Nov 8–11 · 4 nights</span></h3>
             <div class="stays-grid">
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD</div>
-                    <div class="stay-guests">Ben, Nicole, Ashley</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD</div>
-                    <div class="stay-guests">Marissa</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ben & Nicole</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ashley</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Marissa</div><a href="#" class="stay-link">📍 View on Maps</a></div>
             </div>
         </div>
 
         <div class="stays-phase">
-            <h3>Gujo Hachiman <span class="badge gujo">Nov 11–14 · 3 nights</span></h3>
+            <h3>Gujo Hachiman <span class="badge gujo">Nov 12–13 · 2 nights</span></h3>
             <div class="stays-grid">
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD (Ryokan)</div>
-                    <div class="stay-guests">Everyone</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
+                <div class="stay-card"><div class="stay-hotel">TBD (Ryokan)</div><div class="stay-guests">Ben & Nicole</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD (Ryokan)</div><div class="stay-guests">Ashley</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD (Ryokan)</div><div class="stay-guests">Marissa</div><a href="#" class="stay-link">📍 View on Maps</a></div>
             </div>
         </div>
 
         <div class="stays-phase">
-            <h3>Tokyo <span class="badge tokyo">Nov 14–16 · 2 nights</span></h3>
+            <h3>Tokyo <span class="badge tokyo">Nov 14 · 1 night</span></h3>
             <div class="stays-grid">
-                <div class="stay-card">
-                    <div class="stay-hotel">TBD</div>
-                    <div class="stay-guests">Everyone</div>
-                    <a href="#" class="stay-link">📍 View on Maps</a>
-                </div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ben & Nicole</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Ashley</div><a href="#" class="stay-link">📍 View on Maps</a></div>
+                <div class="stay-card"><div class="stay-hotel">TBD</div><div class="stay-guests">Marissa</div><a href="#" class="stay-link">📍 View on Maps</a></div>
             </div>
         </div>
+
+        <p style="text-align:center; font-size:0.82rem; color:var(--text-light); margin-top:1rem;">People may share rooms — this will get updated as we book. Some stays might combine!</p>
     </div>
 </section>
 
@@ -1579,22 +1580,21 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
     /* ── Trip Data ── */
     const TRIP_START = new Date('2026-11-01T23:00:00Z');
     const tripDays = {
-        1:  { loc: 'transit',   label: 'Depart ✈️',    short: '✈️',      color: '#A0937D', wxCity: 'seoul',    id: null },
-        2:  { loc: 'seoul',     label: 'Arrival',       short: 'Arrive',  color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
-        3:  { loc: 'seoul',     label: 'Markets',       short: 'Mkts',    color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
-        4:  { loc: 'seoul',     label: 'K-Beauty',      short: 'K-Bty',   color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
-        5:  { loc: 'seoul',     label: 'Tattoo Day',    short: 'Tattoo',  color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
-        6:  { loc: 'seoul',     label: 'Nami Island',   short: 'Nami',    color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
-        7:  { loc: 'transit',   label: '→ Tokyo',       short: '→TKY',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
-        8:  { loc: 'tokyo',     label: 'Vintage',       short: 'Vintg',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
-        9:  { loc: 'tokyo',     label: 'Disneyland!',   short: 'Disney',  color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
-        10: { loc: 'tokyo',     label: 'Golden Gai',    short: 'G.Gai',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
-        11: { loc: 'transit',   label: '→ Mountains',   short: '→Mtn',    color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
-        12: { loc: 'gujo',      label: 'Koi Town',      short: 'Koi',     color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
-        13: { loc: 'takayama',  label: 'Sake & Beef',   short: 'Sake',    color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
-        14: { loc: 'transit',   label: '→ Tokyo',       short: '→TKY',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
-        15: { loc: 'tokyo',     label: 'Last Day',      short: 'Last',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
-        16: { loc: 'transit',   label: 'Fly Home ✈️',   short: 'Home',    color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
+        1:  { loc: 'transit',   label: 'Depart ✈️',     short: '✈️',      color: '#A0937D', wxCity: 'seoul',    id: null },
+        2:  { loc: 'lost',      label: '👻 Lost Day',   short: '👻',      color: 'rgba(160,147,125,0.3)', wxCity: 'seoul', id: 'day-lost', lost: true },
+        3:  { loc: 'seoul',     label: 'Arrival',        short: 'Arrive',  color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
+        4:  { loc: 'seoul',     label: 'Markets',        short: 'Mkts',    color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
+        5:  { loc: 'seoul',     label: 'K-Beauty',       short: 'K-Bty',   color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
+        6:  { loc: 'seoul',     label: 'Tattoo Day',     short: 'Tattoo',  color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
+        7:  { loc: 'seoul',     label: 'Nami Island',    short: 'Nami',    color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
+        8:  { loc: 'transit',   label: '→ Tokyo',        short: '→TKY',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
+        9:  { loc: 'tokyo',     label: 'Vintage',        short: 'Vintg',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
+        10: { loc: 'tokyo',     label: 'Disneyland!',    short: 'Disney',  color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
+        11: { loc: 'tokyo',     label: 'Golden Gai',     short: 'G.Gai',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
+        12: { loc: 'transit',   label: '→ Mountains',    short: '→Mtn',    color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
+        13: { loc: 'gujo',      label: 'Koi Town',       short: 'Koi',     color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
+        14: { loc: 'takayama',  label: 'Takayama',       short: 'Sake',    color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
+        15: { loc: 'transit',   label: 'Fly Home ✈️',    short: 'Home✈',   color: '#A0937D', wxCity: 'tokyo',    id: 'day13' },
     };
 
     const wxCoords = {
@@ -1630,16 +1630,8 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         else if (days > -16) el.textContent = "We're on our adventure! 🌸";
         else el.textContent = 'Trip complete — what a journey! 💕';
     }
-    function updateClocks() {
-        const o = { hour: '2-digit', minute: '2-digit', hour12: true };
-        document.getElementById('seoul-time').textContent =
-            new Date().toLocaleTimeString('en-US', { ...o, timeZone: 'Asia/Seoul' });
-        document.getElementById('tokyo-time').textContent =
-            new Date().toLocaleTimeString('en-US', { ...o, timeZone: 'Asia/Tokyo' });
-    }
-    updateCountdown(); updateClocks();
+    updateCountdown();
     setInterval(updateCountdown, 60000);
-    setInterval(updateClocks, 30000);
 
     /* ── Calendar ── */
     function buildCalendar() {
@@ -1659,13 +1651,17 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             const trip = tripDays[d];
             if (trip) {
                 el.classList.add('trip');
-                el.style.background = trip.color;
+                if (trip.lost) {
+                    el.classList.add('lost');
+                } else {
+                    el.style.background = trip.color;
+                }
                 el.innerHTML = `
                     <span>${d}</span>
                     <span class="cal-label"><span class="lbl-full">${trip.label}</span><span class="lbl-short">${trip.short}</span></span>
-                    <span class="cal-wx" id="cal-wx-${d}"></span>
+                    ${trip.lost ? '' : `<span class="cal-wx" id="cal-wx-${d}"></span>`}
                 `;
-                if (trip.id) {
+                if (trip.id && !trip.lost) {
                     el.addEventListener('click', () => {
                         document.getElementById(trip.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     });
@@ -1682,7 +1678,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
     async function fetchWeather() {
         const now = new Date();
         const tripStart = new Date('2026-11-01');
-        const tripEnd = new Date('2026-11-16');
+        const tripEnd = new Date('2026-11-15');
         const forecastReach = new Date(now.getTime() + 16 * 864e5);
 
         // Check if any trip dates are within forecast window
@@ -1722,7 +1718,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             }));
 
             // Apply to calendar and day cards
-            for (let d = 1; d <= 16; d++) {
+            for (let d = 1; d <= 15; d++) {
                 const trip = tripDays[d];
                 if (!trip) continue;
                 const cityFc = forecasts[trip.wxCity];
@@ -1742,7 +1738,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
     }
 
     function applyHistoricalWeather() {
-        for (let d = 1; d <= 16; d++) {
+        for (let d = 1; d <= 15; d++) {
             const trip = tripDays[d];
             if (!trip) continue;
             const avg = histAvg[trip.wxCity];
