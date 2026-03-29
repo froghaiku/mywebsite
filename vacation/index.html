@@ -41,7 +41,7 @@
    RESET & BASE
    ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 120%; }
 body {
     font-family: 'Nunito', sans-serif;
     color: var(--text);
@@ -140,28 +140,47 @@ h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; line-heig
 }
 .hero-meta strong { color: var(--text); font-weight: 700; }
 
-/* Cherry blossom petals */
-.petal {
+/* Falling autumn leaves */
+.leaf {
     position: absolute;
-    width: 10px; height: 10px;
-    background: radial-gradient(ellipse at 30% 30%, #ffcdd6, #f8a4b8);
-    border-radius: 50% 0 50% 50%;
+    width: 14px; height: 14px;
     opacity: 0;
     pointer-events: none;
-    animation: petal-fall linear infinite;
+    animation: leaf-fall linear infinite;
 }
-@keyframes petal-fall {
-    0%   { transform: translateY(-5vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
-    8%   { opacity: 0.55; }
-    85%  { opacity: 0.4; }
-    100% { transform: translateY(105vh) translateX(80px) rotate(540deg) scale(1); opacity: 0; }
+.leaf::before {
+    content: '';
+    display: block;
+    width: 100%; height: 100%;
+    background: var(--leaf-color, #D4726A);
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
 }
-.petal:nth-child(1) { left: 8%; animation-duration: 14s; animation-delay: 0s; width: 9px; height: 9px; }
-.petal:nth-child(2) { left: 22%; animation-duration: 18s; animation-delay: 3s; width: 12px; height: 12px; }
-.petal:nth-child(3) { left: 45%; animation-duration: 16s; animation-delay: 7s; width: 8px; height: 8px; }
-.petal:nth-child(4) { left: 63%; animation-duration: 20s; animation-delay: 2s; width: 11px; height: 11px; }
-.petal:nth-child(5) { left: 80%; animation-duration: 15s; animation-delay: 5s; width: 10px; height: 10px; }
-.petal:nth-child(6) { left: 92%; animation-duration: 19s; animation-delay: 9s; width: 7px; height: 7px; }
+.leaf::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 25%;
+    width: 55%; height: 1px;
+    background: rgba(255,255,255,0.3);
+    transform: rotate(45deg);
+}
+@keyframes leaf-fall {
+    0%   { transform: translateY(-5vh) translateX(0) rotate(0deg); opacity: 0; }
+    6%   { opacity: 0.65; }
+    25%  { transform: translateY(25vh) translateX(40px) rotate(120deg); }
+    50%  { transform: translateY(50vh) translateX(-20px) rotate(240deg); }
+    75%  { transform: translateY(75vh) translateX(60px) rotate(400deg); }
+    90%  { opacity: 0.45; }
+    100% { transform: translateY(105vh) translateX(10px) rotate(540deg); opacity: 0; }
+}
+.leaf:nth-child(1) { left: 8%;  --leaf-color: #C75B3A; animation-duration: 12s; animation-delay: 0s; width: 13px; height: 13px; }
+.leaf:nth-child(2) { left: 20%; --leaf-color: #D4956A; animation-duration: 17s; animation-delay: 2s; width: 16px; height: 16px; }
+.leaf:nth-child(3) { left: 38%; --leaf-color: #B84A2A; animation-duration: 14s; animation-delay: 6s; width: 11px; height: 11px; }
+.leaf:nth-child(4) { left: 55%; --leaf-color: #E8A87C; animation-duration: 19s; animation-delay: 1s; width: 14px; height: 14px; }
+.leaf:nth-child(5) { left: 72%; --leaf-color: #C4704B; animation-duration: 13s; animation-delay: 4s; width: 12px; height: 12px; }
+.leaf:nth-child(6) { left: 88%; --leaf-color: #D4726A; animation-duration: 16s; animation-delay: 8s; width: 10px; height: 10px; }
+.leaf:nth-child(7) { left: 45%; --leaf-color: #9B7050; animation-duration: 20s; animation-delay: 3s; width: 15px; height: 15px; }
+.leaf:nth-child(8) { left: 15%; --leaf-color: #CC6633; animation-duration: 15s; animation-delay: 10s; width: 11px; height: 11px; }
 
 /* ═══════════════════════════════════════════
    SECTION BASICS
@@ -237,19 +256,20 @@ section:nth-child(even) { background: var(--bg-warm); }
     z-index: 2;
 }
 .cal-day .cal-label {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     opacity: 0.85;
-    margin-top: 1px;
+    margin-top: 2px;
     line-height: 1;
 }
 .cal-day .cal-wx {
-    font-size: 0.55rem;
-    opacity: 0.9;
-    margin-top: 1px;
+    font-size: 0.65rem;
+    opacity: 0.95;
+    margin-top: 2px;
     line-height: 1;
+    font-weight: 600;
 }
 .cal-legend {
     display: flex; flex-wrap: wrap; justify-content: center;
@@ -397,10 +417,22 @@ section:nth-child(even) { background: var(--bg-warm); }
 .badge.transit { background: var(--transit); }
 
 .day-wx {
-    font-size: 0.8rem;
-    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-mid);
     white-space: nowrap;
     text-align: right;
+    background: var(--bg);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--r-sm);
+    line-height: 1.3;
+}
+.day-wx small {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 1px;
 }
 .day-summary {
     font-size: 0.9rem;
@@ -749,8 +781,8 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+    <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
     <div class="container">
         <h1>South Korea & Japan</h1>
         <p class="hero-sub">a cozy travel journal for our November adventure</p>
@@ -761,6 +793,11 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             <div><strong id="countdown">Loading...</strong></div>
             <div>Seoul <strong id="seoul-time">--:--</strong></div>
             <div>Tokyo <strong id="tokyo-time">--:--</strong></div>
+        </div>
+        <div style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-light); display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.5rem;">
+            <span>Nov 1 (Sun) depart → Nov 16 (Mon) arrive home</span>
+            <span>·</span>
+            <span><strong style="color:var(--accent);">9 PTO days</strong> needed (8 if Veterans Day is off for you)</span>
         </div>
     </div>
 </section>
@@ -992,7 +1029,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 <div class="day-wx" id="wx-5"></div>
             </div>
             <p class="day-summary">Train to Gapyeong → Nami Island tree-lined paths → Garden of Morning Calm</p>
-            <div class="day-photo"><img src="/assets/images/vacation/garden of morning calm.webp" alt="Garden of Morning Calm"><span class="caption">Garden of Morning Calm</span></div>
+            <div class="day-photo"><img src="/assets/images/vacation/garden%20of%20morning%20calm.webp" alt="Garden of Morning Calm"><span class="caption">Garden of Morning Calm</span></div>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
                 <div class="recs-grid">
@@ -1047,7 +1084,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
 
         <!-- ── TOKYO ── -->
         <div class="city-header">
-            <img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Tokyo">
+            <img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Tokyo">
             <div>
                 <h3>Tokyo, Japan</h3>
                 <span class="city-dates caveat">Days 7–9 · Nov 8–10</span>
@@ -1098,7 +1135,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 <div class="day-wx" id="wx-8"></div>
             </div>
             <p class="day-summary">Full day of magic! Arrive at opening, stay for fireworks</p>
-            <div class="day-photo"><img src="/assets/images/vacation/Tokyo Disneyland.jpg" alt="Tokyo Disneyland"><span class="caption">The happiest place</span></div>
+            <div class="day-photo"><img src="/assets/images/vacation/Tokyo%20Disneyland.jpg" alt="Tokyo Disneyland"><span class="caption">The happiest place</span></div>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
                 <div class="recs-grid">
@@ -1133,7 +1170,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 <div class="day-wx" id="wx-9"></div>
             </div>
             <p class="day-summary">Senso-ji Temple in Asakusa → Ueno Park → evening bar-hopping in Golden Gai</p>
-            <div class="day-photo"><img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Golden Gai"><span class="caption">Golden Gai at night</span></div>
+            <div class="day-photo"><img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Golden Gai"><span class="caption">Golden Gai at night</span></div>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
                 <div class="recs-grid">
@@ -1241,7 +1278,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 <div class="day-wx" id="wx-12"></div>
             </div>
             <p class="day-summary">Morning markets → sake brewery tastings → Hida beef lunch → old town streets</p>
-            <div class="day-photo"><img src="/assets/images/vacation/Takayama Morning Markets.jpg" alt="Takayama"><span class="caption">Miyagawa Morning Market</span></div>
+            <div class="day-photo"><img src="/assets/images/vacation/Takayama%20Morning%20Markets.jpg" alt="Takayama"><span class="caption">Miyagawa Morning Market</span></div>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
                 <div class="recs-grid">
@@ -1298,7 +1335,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
 
         <!-- ── FINAL DAYS ── -->
         <div class="city-header">
-            <img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Tokyo">
+            <img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Tokyo">
             <div>
                 <h3>Final Days</h3>
                 <span class="city-dates caveat">Days 14–15 · Nov 15–16</span>
@@ -1343,12 +1380,12 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             <div class="day-top">
                 <span class="day-num">15</span>
                 <div class="day-info">
-                    <h3>Departure</h3>
+                    <h3>Fly Home</h3>
                     <span class="day-meta">Mon, Nov 16 · <span class="badge transit">Heading Home</span></span>
                 </div>
                 <div class="day-wx" id="wx-15"></div>
             </div>
-            <p class="day-summary">Final breakfast → airport → fly home with incredible memories ✈️</p>
+            <p class="day-summary">Final breakfast → head to airport → fly home. Arrive in the USA same day (thanks, time zones!) ✈️</p>
         </div>
 
     </div>
@@ -1731,10 +1768,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 const cityFc = forecasts[trip.wxCity];
                 const wx = cityFc && cityFc[d];
                 if (wx) {
-                    applyWeatherToDay(d, wx, trip);
+                    applyWeatherToDay(d, wx, trip, true);
                 } else {
                     const avg = histAvg[trip.wxCity];
-                    applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip);
+                    applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip, false);
                 }
             }
         } catch (e) {
@@ -1749,18 +1786,21 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
             const trip = tripDays[d];
             if (!trip) continue;
             const avg = histAvg[trip.wxCity];
-            applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip);
+            applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip, false);
         }
     }
 
-    function applyWeatherToDay(d, wx, trip) {
+    function applyWeatherToDay(d, wx, trip, isLive) {
         // Calendar cell
         const calEl = document.getElementById(`cal-wx-${d}`);
         if (calEl) calEl.textContent = `${wx.icon} ${wx.hi}°`;
         // Day card
         const dayNum = d - 1; // day card numbering is 1-indexed starting from Nov 2
         const wxEl = document.getElementById(`wx-${dayNum}`);
-        if (wxEl) wxEl.textContent = `${wx.icon} ${wx.hi}°/${wx.lo}°F`;
+        if (wxEl) {
+            const label = isLive ? 'forecast' : 'typical';
+            wxEl.innerHTML = `${wx.icon} ${wx.hi}°/${wx.lo}°F<small>${label}</small>`;
+        }
     }
     fetchWeather();
 
