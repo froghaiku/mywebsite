@@ -1764,7 +1764,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         const wxEl = document.getElementById(`wx-${dayNum}`);
         if (wxEl) {
             const label = isLive ? 'forecast' : 'typical';
-            wxEl.innerHTML = `${wx.icon} ${wx.hi}°/${wx.lo}°F<small>${label}</small>`;
+            wxEl.innerHTML = `${wx.icon} ${wx.lo}°/${wx.hi}°F<small>${label}</small>`;
         }
     }
     fetchWeather();
