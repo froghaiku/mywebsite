@@ -3,1202 +3,1816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japan & South Korea Adventure 2026 | Ben Schoeffler</title>
-    <meta name="description" content="17-day journey through Seoul, Tokyo, and Takayama - October 2026">
-
-    <!-- Open Graph for sharing -->
-    <meta property="og:title" content="Japan & South Korea Adventure 2026">
-    <meta property="og:description" content="Follow our 17-day journey through Seoul, Tokyo, and Takayama">
-    <meta property="og:type" content="website">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Google Fonts -->
+    <title>South Korea & Japan 2026 — Our Travel Journal</title>
+    <meta name="description" content="A cozy travel journal for our November 2026 adventure through Seoul, Tokyo, Gujo Hachiman & Takayama">
+    <meta property="og:title" content="South Korea & Japan 2026">
+    <meta property="og:description" content="15 days across Seoul, Tokyo, Gujo Hachiman & Takayama — November 2026">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+   ═══════════════════════════════════════════ */
+:root {
+    --bg: #FDF8F4;
+    --bg-warm: #FAF0E6;
+    --card: #FFFFFF;
+    --accent: #C4704B;
+    --accent-light: #E8A87C;
+    --accent-glow: rgba(196,112,75,0.12);
+    --seoul: #D4726A;
+    --tokyo: #6B8EAE;
+    --gujo: #7BA584;
+    --takayama: #9B7DB8;
+    --transit: #A0937D;
+    --text: #3D2C2C;
+    --text-mid: #5C4A4A;
+    --text-light: #8A7B7B;
+    --border: #EDE5DE;
+    --shadow: 0 2px 16px rgba(139,90,60,0.07);
+    --shadow-lg: 0 8px 32px rgba(139,90,60,0.10);
+    --shadow-hover: 0 12px 40px rgba(139,90,60,0.14);
+    --r: 18px;
+    --r-sm: 12px;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Paper grain texture */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--text); }
+h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.25; }
+.caveat { font-family: 'Caveat', cursive; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
+.nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,248,244,0.88);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+}
+.nav-inner {
+    display: flex; align-items: center; gap: 0.5rem;
+    overflow-x: auto; scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-brand {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap; margin-right: auto;
+    letter-spacing: -0.01em;
+}
+.nav-link {
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--text-light); white-space: nowrap;
+    padding: 0.35rem 0.7rem; border-radius: 99px;
+    transition: all 0.25s;
+    text-transform: uppercase; letter-spacing: 0.06em;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--accent);
+    background: var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+    position: relative;
+    padding: 5rem 0 4rem;
+    text-align: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 25% 40%, rgba(212,114,106,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 30%, rgba(107,142,174,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 80%, rgba(232,168,124,0.10) 0%, transparent 50%),
+        var(--bg);
+}
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+.hero-sub {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.hero-route {
+    font-size: 0.95rem; color: var(--text-mid);
+    letter-spacing: 0.04em; margin-bottom: 2rem;
+}
+.hero-route span { display: inline-block; margin: 0 0.3rem; }
+.hero-meta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem 2.5rem;
+    font-size: 0.9rem; color: var(--text-light);
+}
+.hero-meta strong { color: var(--text); font-weight: 700; }
+
+/* Cherry blossom petals */
+.petal {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: radial-gradient(ellipse at 30% 30%, #ffcdd6, #f8a4b8);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: petal-fall linear infinite;
+}
+@keyframes petal-fall {
+    0%   { transform: translateY(-5vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+    8%   { opacity: 0.55; }
+    85%  { opacity: 0.4; }
+    100% { transform: translateY(105vh) translateX(80px) rotate(540deg) scale(1); opacity: 0; }
+}
+.petal:nth-child(1) { left: 8%; animation-duration: 14s; animation-delay: 0s; width: 9px; height: 9px; }
+.petal:nth-child(2) { left: 22%; animation-duration: 18s; animation-delay: 3s; width: 12px; height: 12px; }
+.petal:nth-child(3) { left: 45%; animation-duration: 16s; animation-delay: 7s; width: 8px; height: 8px; }
+.petal:nth-child(4) { left: 63%; animation-duration: 20s; animation-delay: 2s; width: 11px; height: 11px; }
+.petal:nth-child(5) { left: 80%; animation-duration: 15s; animation-delay: 5s; width: 10px; height: 10px; }
+.petal:nth-child(6) { left: 92%; animation-duration: 19s; animation-delay: 9s; width: 7px; height: 7px; }
+
+/* ═══════════════════════════════════════════
+   SECTION BASICS
+   ═══════════════════════════════════════════ */
+section { padding: 4rem 0; }
+section:nth-child(even) { background: var(--bg-warm); }
+.section-title {
+    text-align: center;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 0.4rem;
+}
+.section-sub {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+}
+/* Wavy divider */
+.wave { display: block; width: 100%; line-height: 0; }
+.wave svg { display: block; width: 100%; height: 40px; }
+
+/* ═══════════════════════════════════════════
+   CALENDAR
+   ═══════════════════════════════════════════ */
+.cal-wrap {
+    background: var(--card);
+    border-radius: var(--r);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.cal-header {
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+.cal-dow {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    padding: 0.4rem 0;
+}
+.cal-day {
+    aspect-ratio: 1;
+    border-radius: var(--r-sm);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--text-light);
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.cal-day.empty { visibility: hidden; }
+.cal-day.trip {
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+.cal-day.trip:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+.cal-day .cal-label {
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    margin-top: 1px;
+    line-height: 1;
+}
+.cal-day .cal-wx {
+    font-size: 0.55rem;
+    opacity: 0.9;
+    margin-top: 1px;
+    line-height: 1;
+}
+.cal-legend {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.75rem; margin-top: 1.25rem;
+    font-size: 0.75rem; color: var(--text-light);
+}
+.cal-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: -1px;
+}
+.cal-legend .leg-seoul::before { background: var(--seoul); }
+.cal-legend .leg-tokyo::before { background: var(--tokyo); }
+.cal-legend .leg-gujo::before { background: var(--gujo); }
+.cal-legend .leg-takayama::before { background: var(--takayama); }
+.cal-legend .leg-transit::before { background: var(--transit); }
+.cal-wx-note {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   WHO'S GOING
+   ═══════════════════════════════════════════ */
+.crew-grid {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.crew-card {
+    display: flex; align-items: center; gap: 0.65rem;
+    background: var(--card);
+    padding: 0.6rem 1rem 0.6rem 0.6rem;
+    border-radius: 99px;
+    box-shadow: var(--shadow);
+}
+.crew-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.8rem;
+    color: #fff;
+}
+.crew-name { font-weight: 600; font-size: 0.88rem; }
+.crew-status {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.crew-status.confirmed { background: #6fbf73; }
+.crew-status.maybe { background: #e8a87c; }
+.crew-label {
+    width: 100%;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+/* ═══════════════════════════════════════════
+   ITINERARY
+   ═══════════════════════════════════════════ */
+.city-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+}
+.city-header:first-child { margin-top: 0; }
+.city-header img {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--card);
+    box-shadow: var(--shadow);
+}
+.city-header h3 {
+    font-size: 1.5rem;
+}
+.city-header .city-dates {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem; color: var(--text-light);
+}
+
+.day-card {
+    background: var(--card);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+    border-left: 4px solid var(--border);
+}
+.day-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+.day-card.seoul { border-left-color: var(--seoul); }
+.day-card.tokyo { border-left-color: var(--tokyo); }
+.day-card.gujo { border-left-color: var(--gujo); }
+.day-card.takayama { border-left-color: var(--takayama); }
+.day-card.transit { border-left-color: var(--transit); }
+
+.day-top {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+}
+.day-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--accent);
+    min-width: 2.2rem;
+}
+.day-info { flex: 1; }
+.day-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.15rem;
+}
+.day-meta {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+.badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    color: #fff;
+    vertical-align: 1px;
+}
+.badge.seoul { background: var(--seoul); }
+.badge.tokyo { background: var(--tokyo); }
+.badge.gujo { background: var(--gujo); }
+.badge.takayama { background: var(--takayama); }
+.badge.transit { background: var(--transit); }
+
+.day-wx {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    white-space: nowrap;
+    text-align: right;
+}
+.day-summary {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin: 0.6rem 0 0;
+    padding-left: 2.95rem;
+}
+/* Polaroid image on select days */
+.day-photo {
+    margin: 1rem 0 0.5rem 2.95rem;
+    display: inline-block;
+    background: #fff;
+    padding: 6px 6px 28px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+    transform: rotate(-1.5deg);
+    max-width: 240px;
+}
+.day-photo:nth-of-type(even) { transform: rotate(1deg); }
+.day-photo img {
+    width: 100%; height: 150px;
+    object-fit: cover;
+}
+.day-photo .caption {
+    font-family: 'Caveat', cursive;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* Expandable recs */
+.day-recs {
+    margin: 0.75rem 0 0 2.95rem;
+}
+.day-recs summary {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: center; gap: 0.35rem;
+}
+.day-recs summary::-webkit-details-marker { display: none; }
+.day-recs summary::before {
+    content: '▸';
+    display: inline-block;
+    transition: transform 0.2s;
+    font-size: 0.7rem;
+}
+.day-recs[open] summary::before { transform: rotate(90deg); }
+.recs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+}
+.recs-grid h4 {
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+.recs-grid ul {
+    list-style: none;
+    padding: 0;
+}
+.recs-grid li {
+    margin-bottom: 0.35rem;
+    padding-left: 1.2em;
+    position: relative;
+    line-height: 1.45;
+}
+.recs-grid li::before {
+    content: attr(data-icon);
+    position: absolute;
+    left: 0;
+}
+.recs-grid a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
+}
+.recs-grid a:hover { text-decoration-color: var(--accent); }
+
+@media (max-width: 600px) {
+    .recs-grid { grid-template-columns: 1fr; }
+    .day-summary, .day-recs, .day-photo { padding-left: 0; margin-left: 0; }
+}
+
+/* ═══════════════════════════════════════════
+   WHERE WE'RE STAYING
+   ═══════════════════════════════════════════ */
+.stays-phase {
+    margin-bottom: 2rem;
+}
+.stays-phase h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.stays-phase h3 .badge { font-size: 0.6rem; }
+.stays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.stay-card {
+    background: var(--card);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: 1.25rem;
+}
+.stay-hotel {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-mid);
+}
+.stay-guests {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+.stay-link {
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   SAVED PLACES
+   ═══════════════════════════════════════════ */
+.maps-grid {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.map-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: var(--card);
+    padding: 0.75rem 1.25rem;
+    border-radius: 99px;
+    box-shadow: var(--shadow);
+    transition: all 0.25s;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.map-link:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+.map-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 0.8rem;
+}
+.maps-hint {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   COST
+   ═══════════════════════════════════════════ */
+.cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+}
+.cost-card {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+}
+.cost-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+.cost-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+.cost-note {
+    font-size: 0.78rem;
+    color: var(--text-light);
+}
+.cost-card.total {
+    background: linear-gradient(135deg, var(--accent), #d4956a);
+    color: #fff;
+}
+.cost-card.total h3, .cost-card.total .cost-note { color: rgba(255,255,255,0.85); }
+.cost-card.total .cost-amount { color: #fff; font-size: 2rem; }
+
+/* Currency converter */
+.converter {
+    background: var(--card);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.converter h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+.converter-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.75rem; flex-wrap: wrap;
+}
+.converter input {
+    width: 100px;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.converter input:focus { border-color: var(--accent); }
+.converter-result {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+}
+.converter-result strong {
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+/* ═══════════════════════════════════════════
+   PRACTICAL INFO
+   ═══════════════════════════════════════════ */
+.tips-section {
+    margin-bottom: 2rem;
+}
+.tips-section h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.75rem;
+}
+.tip-card {
+    background: var(--card);
+    border-radius: var(--r-sm);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+.tip-card strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════════════
+   FAQ
+   ═══════════════════════════════════════════ */
+.faq-list { display: grid; gap: 0.75rem; }
+.faq-item {
+    background: var(--card);
+    border-radius: var(--r-sm);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
+    overflow: hidden;
+}
+.faq-item summary {
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+    content: '+';
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-answer {
+    padding: 0 1.25rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+footer .caveat { font-size: 1.1rem; color: var(--accent); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .hero { padding: 3.5rem 0 2.5rem; }
+    .cal-wrap { padding: 1rem; }
+    .cal-day { font-size: 0.75rem; }
+    .day-top { flex-wrap: wrap; }
+    .day-num { font-size: 1.4rem; min-width: 1.8rem; }
+    .city-header img { width: 44px; height: 44px; }
+    .cost-grid { grid-template-columns: 1fr; }
+    .converter-row { flex-direction: column; }
+}
+</style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header class="vacation-header">
-        <div class="container">
-            <nav class="vacation-nav">
-                <div class="vacation-title">Japan & South Korea 2026</div>
-                <div class="vacation-nav-links">
-                    <a href="#why">Why This Trip?</a>
-                    <a href="#who">Who is Coming</a>
-                    <a href="#itinerary">Itinerary</a>
-                    <a href="#cost">Cost</a>
-                    <a href="#practical">Practical Info</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-            </nav>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="nav">
+    <div class="container nav-inner">
+        <span class="nav-brand">🌸 Our Trip</span>
+        <a href="#calendar" class="nav-link">Calendar</a>
+        <a href="#who" class="nav-link">Crew</a>
+        <a href="#itinerary" class="nav-link">Itinerary</a>
+        <a href="#stays" class="nav-link">Stays</a>
+        <a href="#cost" class="nav-link">Cost</a>
+        <a href="#info" class="nav-link">Info</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="container">
+        <h1>South Korea & Japan</h1>
+        <p class="hero-sub">a cozy travel journal for our November adventure</p>
+        <p class="hero-route">
+            <span>Seoul</span> → <span>Tokyo</span> → <span>Gujo Hachiman</span> → <span>Takayama</span> → <span>Tokyo</span>
+        </p>
+        <div class="hero-meta">
+            <div><strong id="countdown">Loading...</strong></div>
+            <div>Seoul <strong id="seoul-time">--:--</strong></div>
+            <div>Tokyo <strong id="tokyo-time">--:--</strong></div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="vacation-hero">
-        <div class="container">
-            <h1>South Korea & Japan Adventure</h1>
-            <p class="subtitle">October 2026 - The Trip of a Lifetime</p>
-            <p class="duration">17 days | Seoul → Tokyo → Takayama → Tokyo</p>
-
-            <!-- Calendar -->
-            <div style="margin-top: 2rem; display: flex; justify-content: center;">
-                <img src="/assets/images/october-calendar.svg" alt="October 2026 Trip Calendar" style="max-width: 800px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+<!-- ═══════════════ CALENDAR ═══════════════ -->
+<section id="calendar">
+    <div class="container">
+        <h2 class="section-title">November 2026</h2>
+        <p class="section-sub">tap a day to jump there</p>
+        <div class="cal-wrap">
+            <div class="cal-grid" id="cal-grid">
+                <!-- Generated by JS -->
             </div>
-        </div>
-    </section>
-
-    <!-- Intro -->
-    <section id="why" style="padding: 3rem 0; background: white;">
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <h2 style="margin-bottom: 1rem;">Why This Trip?</h2>
-            <p style="margin-bottom: 1rem;">I love you all and want to travel with you! I know a trip like this is a bit expensive, but my first trip to Japan was so life changing I wanted to have another experience like that with some of those closest to me. Plus, now we are adding South Korea which makes this a great once in a lifetime endeavor.</p>
-            <p style="margin-bottom: 1.5rem;">The point of this itinerary is to give you an idea of what Nicole and I will be doing. <strong>You are welcome to join any part of this trip that looks interesting to you, you are not obligated to go to all parts of it.</strong> If Japan doesn't sound interesting then just join us on the South Korean leg of the journey. If Takayama isn't your vibe then head to Kyoto or Hiroshima instead. Take this as an opportunity to meet up with us where you can and build your own once in a lifetime adventure!</p>
-        </div>
-    </section>
-
-    <!-- Who's Going Section -->
-    <section id="who" style="padding: 3rem 0; background: var(--light-bg);">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Who all (might!) be going?</h2>
-            <div class="attendees-grid">
-                <div class="attendee confirmed">
-                    <span class="checkmark">✓</span>
-                    <span class="name">Ben & Nicole</span>
-                    <span class="status">(confirmed)</span>
-                </div>
-                <div class="attendee confirmed">
-                    <span class="checkmark">✓</span>
-                    <span class="name">Miguel & Ashley</span>
-                    <span class="status">(confirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Jon & Mallory</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Ashley Creel</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Kama Hurley</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Joel & Mel</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Tom & Monica</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Marissa & Michael</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Emily Pearson</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
-                <div class="attendee unconfirmed">
-                    <span class="name">Jason</span>
-                    <span class="status">(unconfirmed)</span>
-                </div>
+            <div class="cal-legend">
+                <span class="leg-seoul">Seoul</span>
+                <span class="leg-tokyo">Tokyo</span>
+                <span class="leg-gujo">Gujo Hachiman</span>
+                <span class="leg-takayama">Takayama</span>
+                <span class="leg-transit">Transit</span>
             </div>
+            <p class="cal-wx-note" id="wx-note"></p>
+        </div>
+    </div>
+</section>
 
-            <!-- Warning Callout -->
-            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 8px; text-align: left; margin-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p style="margin: 0; color: #92400e; font-weight: 500;">⚠️ <strong>Warning:</strong> Although Nicole and I are planning on taking this trip we won't be 100% sure until we actually buy the tickets. You can't buy plane tickets for October of 2026 yet. We hope there are no roadblocks but the unexpected does happen (as the last couple years of multiple layoffs, deaths, and across state moves have taught us). As soon as we buy tickets for sure I'll let you all know.</p>
+<!-- ═══════════════ WHO'S GOING ═══════════════ -->
+<section id="who">
+    <div class="container">
+        <h2 class="section-title">The Crew</h2>
+        <p class="section-sub">who's along for the ride?</p>
+
+        <p class="crew-label">Confirmed</p>
+        <div class="crew-grid">
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--seoul);">B+N</div>
+                <span class="crew-name">Ben & Nicole</span>
+                <span class="crew-status confirmed"></span>
+            </div>
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--gujo);">A</div>
+                <span class="crew-name">Ashley</span>
+                <span class="crew-status confirmed"></span>
+            </div>
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--takayama);">M</div>
+                <span class="crew-name">Marissa</span>
+                <span class="crew-status confirmed"></span>
             </div>
         </div>
-    </section>
 
-    <!-- ITINERARY OVERVIEW -->
-    <section id="itinerary" style="padding: 3rem 0; background: var(--light-bg);">
-        <div class="container" style="max-width: 1200px;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Day-by-Day Overview</h2>
-
-            <div class="itinerary-grid">
-                <!-- South Korea Column -->
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; text-align: center;">🇰🇷 South Korea</h3>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="#day1" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 4: The Arrival</a></li>
-                        <li><a href="#day2" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 5: Markets & Traditional Seoul</a></li>
-                        <li><a href="#day3" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 6: Vintage Vibes & K-Pop Dreams</a></li>
-                        <li><a href="#day4" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 7: Nami Island & Garden of Morning Calm</a></li>
-                        <li><a href="#day5" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 8: Tattoo Day & Treasure Hunting</a></li>
-                        <li><a href="#day6" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 9: Books, Markets & Final Explorations</a></li>
-                        <li><a href="#day7" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 10: Seoul → Tokyo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Tokyo Part 1 Column -->
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; text-align: center;">🇯🇵 Tokyo Part 1</h3>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="#day8" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 11: Coffee, Books & Vintage Treasures</a></li>
-                        <li><a href="#day9" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 12: Tokyo Disneyland</a></li>
-                        <li><a href="#day10" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 13: Tokyo → Takayama</a></li>
-                    </ul>
-                </div>
-
-                <!-- Takayama Column -->
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; text-align: center;">⛰️ Takayama</h3>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="#day11" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 14: Takayama Morning Markets</a></li>
-                        <li><a href="#day12" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 15: Takayama → Tokyo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Tokyo Part 2 Column -->
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; text-align: center;">🇯🇵 Tokyo Part 2</h3>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="#day13" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 16: Tokyo Markets & Neighborhoods</a></li>
-                        <li><a href="#day14" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 17: Free Day: Your Choice</a></li>
-                        <li><a href="#day15" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 18: Last Full Day</a></li>
-                        <li><a href="#day16" style="color: var(--text-dark); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-dark)'">Oct 19: Departure Day</a></li>
-                    </ul>
-                </div>
+        <p class="crew-label" style="margin-top:1.5rem;">Maybe</p>
+        <div class="crew-grid">
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--tokyo);">J</div>
+                <span class="crew-name">Jason</span>
+                <span class="crew-status maybe"></span>
+            </div>
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--accent-light);">M+J</div>
+                <span class="crew-name">Mel & Joel</span>
+                <span class="crew-status maybe"></span>
+            </div>
+            <div class="crew-card">
+                <div class="crew-avatar" style="background:var(--transit);">M+A</div>
+                <span class="crew-name">Miguel & Ashley</span>
+                <span class="crew-status maybe"></span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- SOUTH KOREA SECTION -->
-    <section class="timeline-section" id="korea">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1.5rem;">🇰🇷 Part 1: South Korea (6 nights)</h2>
+<!-- ═══════════════ ITINERARY ═══════════════ -->
+<section id="itinerary">
+    <div class="container">
+        <h2 class="section-title">Day by Day</h2>
+        <p class="section-sub">the full adventure, one day at a time</p>
 
-            <div style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
-                <p>Our Korean adventure centers around Seoul's vibrant neighborhoods and unique market culture. We'll dive deep into vintage shopping in trendy districts like Seongsu-dong and Hongdae, explore traditional hanok villages, and experience everything from K-pop culture to centuries-old morning markets. A day trip to Nami Island offers stunning fall foliage and natural beauty, while a tattoo appointment and treasure hunting at Dongmyo flea market add personal touches to the journey. Each day balances Seoul's modern energy with its rich cultural heritage.</p>
-            </div>
-
-            <div class="timeline">
-                <!-- Day 1 -->
-                <div class="day-card" id="day1">
-                    <div class="day-header">
-                        <div class="day-number">1</div>
-                        <div class="day-info">
-                            <h3>The Arrival</h3>
-                            <p class="day-date">Sunday, October 4</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Seoul</span>
-                    <div class="day-content">
-                        <p>After departing Friday, October 2nd and crossing the Pacific and the International Date Line, we land in Seoul ready to begin our adventure. Today is about recovery and orientation—getting our bearings in one of Asia's most dynamic cities.</p>
-
-                        <h4>What We're Doing:</h4>
-                        <ul>
-                            <li>Arrive at Seoul Incheon Airport and transfer to hotel</li>
-                            <li>Pick up T-money cards (Seoul's rechargeable transit card)</li>
-                            <li>Download Naver Maps (Google Maps doesn't work well in Korea)</li>
-                            <li>Take a gentle walk around the neighborhood</li>
-                            <li>Find a local restaurant for our first Korean meal</li>
-                            <li>Early to bed to recover from jet lag</li>
-                        </ul>
-
-                        <p><strong>Why This Matters:</strong> Fighting jet lag is real. By keeping today light and getting proper rest, we'll be energized for the full days ahead.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/seoul cityscape.jpg" alt="Seoul cityscape">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 2 -->
-                <div class="day-card" id="day2">
-                    <div class="day-header">
-                        <div class="day-number">2</div>
-                        <div class="day-info">
-                            <h3>Markets & Traditional Seoul</h3>
-                            <p class="day-date">Monday, October 5</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Seoul</span>
-                    <div class="day-content">
-                        <p>Today we dive into Seoul's incredible market culture and discover one of the city's most charming traditional neighborhoods.</p>
-
-                        <h4>Morning: Gwangjang Market</h4>
-                        <p>One of Seoul's oldest and most beloved traditional markets. Picture rows of tiny stalls with grandmothers cooking over hot plates, steam rising from bubbling pots, and the intoxicating smell of sizzling pancakes.</p>
-
-                        <p><strong>What to Try:</strong></p>
-                        <ul>
-                            <li>Bindaetteok (savory mung bean pancakes fried to crispy perfection)</li>
-                            <li>Fresh bibimbap served in brass bowls</li>
-                            <li>Mayak gimbap ("drug kimbap"—so called because they're addictively good)</li>
-                            <li>Various Korean street snacks and kimchi varieties</li>
-                        </ul>
-
-                        <h4>Afternoon: Ikseon-dong Hanok Village</h4>
-                        <p>This maze of narrow alleyways lined with traditional Korean houses (hanok) has been transformed into one of Seoul's hippest neighborhoods. Century-old wooden architecture housing indie boutiques, artisan coffee shops, and cozy cafes.</p>
-
-                        <p><strong>Why Ikseon-dong Wins:</strong> Less crowded than famous hanok villages, perfect blend of traditional architecture and modern aesthetics, indie shops selling unique items.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Ikseon-dong-6.jpg" alt="Ikseon-dong streets">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 3 -->
-                <div class="day-card" id="day3">
-                    <div class="day-header">
-                        <div class="day-number">3</div>
-                        <div class="day-info">
-                            <h3>Vintage Vibes & K-Pop Dreams</h3>
-                            <p class="day-date">Tuesday, October 6</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Seoul</span>
-                    <div class="day-content">
-                        <p>Today is all about Seoul's creative energy—from the industrial-chic Seongsu-dong to the youthful chaos of Hongdae.</p>
-
-                        <h4>Morning: Seongsu-dong - Seoul's Brooklyn</h4>
-                        <p>Once an industrial area of shoe factories, now Seoul's trendiest neighborhood. Converted factory spaces now house concept stores, artisan coffee roasters, and some of the city's best vintage shopping.</p>
-
-                        <p><strong>What Makes It Special:</strong></p>
-                        <ul>
-                            <li>Authentic vintage clothing shops (better selection than tourist areas)</li>
-                            <li>Some shops carry larger sizes, especially Western vintage pieces</li>
-                            <li>Third-wave coffee culture at its finest</li>
-                            <li>Less crowded than Hongdae or Myeongdong</li>
-                            <li>Great photo opportunities with industrial aesthetic</li>
-                        </ul>
-
-                        <h4>Afternoon: Tongin Market</h4>
-                        <p>Unique brass coin system—exchange modern money for old-style coins, then use them at various food stalls. It's like a culinary treasure hunt!</p>
-
-                        <h4>Evening: Hongdae - K-Pop Central</h4>
-                        <p>The beating heart of Seoul's youth culture. Street performers, buskers, K-pop dance crews—Hongdae has it all.</p>
-
-                        <p><strong>What You'll Find:</strong></p>
-                        <ul>
-                            <li>Stores dedicated to K-pop merchandise (albums, posters, lightsticks)</li>
-                            <li>Indie fashion boutiques with Korean street style</li>
-                            <li>Live street performances</li>
-                            <li>Noraebang (Korean karaoke)</li>
-                            <li>Underground music venues</li>
-                        </ul>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Seongsu-dong.jpg" alt="Seongsu-dong industrial aesthetic">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 4 -->
-                <div class="day-card" id="day4">
-                    <div class="day-header">
-                        <div class="day-number">4</div>
-                        <div class="day-info">
-                            <h3>Nami Island & Garden of Morning Calm</h3>
-                            <p class="day-date">Wednesday, October 7</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Gapyeong (Day Trip)</span>
-                    <div class="day-content">
-                        <p>Today we escape Seoul's urban energy for a day of natural beauty and romantic scenery. This is where Korean dramas come to film their most picturesque moments.</p>
-
-                        <h4>The Journey</h4>
-                        <p>A scenic 1-hour train ride on the ITX from Seoul to Gapyeong, then a short shuttle to our destinations.</p>
-
-                        <h4>Nami Island (2-3 hours)</h4>
-                        <p>This half-moon shaped island is famous for its tree-lined paths that create natural tunnels of foliage. In October, you'll catch the beginning of fall colors—leaves transitioning from green to gold and red.</p>
-
-                        <p><strong>What Makes It Worth It:</strong></p>
-                        <ul>
-                            <li>Stunning tree-lined walking paths (metasequoia lane is famous)</li>
-                            <li>Completely car-free and peaceful</li>
-                            <li>Flat, easy terrain—perfect for walking</li>
-                            <li>Quirky art installations and sculptures throughout</li>
-                            <li>Small cafes and snack shops on the island</li>
-                            <li>The island has its own "passport" stamp system</li>
-                        </ul>
-
-                        <h4>Garden of Morning Calm (2-3 hours)</h4>
-                        <p>If Nami Island is about natural tree-lined beauty, the Garden of Morning Calm is about curated horticultural artistry. This 30-acre garden showcases Korean landscaping traditions with over 20 themed gardens.</p>
-
-                        <p><strong>October Highlights:</strong> Fall chrysanthemum displays, autumn foliage beginning to peak, Korean traditional garden aesthetics, mountain backdrop views.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/garden of morning calm.webp" alt="Garden of Morning Calm">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 5 -->
-
-                <div class="day-card" id="day5">
-                    <div class="day-header">
-                        <div class="day-number">5</div>
-                        <div class="day-info">
-                            <h3>Tattoo Day & Treasure Hunting</h3>
-                            <p class="day-date">Thursday, October 8</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Seoul</span>
-                    <div class="day-content">
-                        <p>Today centers around the tattoo appointment, with flexible plans depending on how things go.</p>
-
-                        <h4>Morning/Afternoon: Tattoo Appointment</h4>
-                        <p>Seoul's tattoo scene is world-class, especially for fine-line work, delicate designs, and detailed pieces. Artists in Hongdae and Itaewon are accustomed to working with international clients.</p>
-
-                        <p><strong>Areas to Book:</strong></p>
-                        <ul>
-                            <li>Hongdae: Younger vibe, street art influence, trendy styles</li>
-                            <li>Itaewon: International neighborhood, foreigner-friendly, diverse styles</li>
-                        </ul>
-
-                        <h4>If Feeling Good: Dongmyo Flea Market</h4>
-                        <p>Seoul's largest vintage and secondhand market—massive, overwhelming, and absolutely packed with treasures if you're willing to dig. Think entire buildings full of vintage clothing, antiques, retro items, and random interesting things.</p>
-
-                        <p><strong>What You'll Find:</strong> Genuine vintage clothing (Korean and Western), retro items from the 70s-90s, antique Korean furniture, military surplus and workwear.</p>
-
-                        <h4>Evening: Myeongdong</h4>
-                        <p>Seoul's main shopping district—touristy but fun, with tons of K-pop merchandise stores, Korean beauty shops, street food vendors, and general shopping chaos.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/korean tattoo artist.jpg" alt="Korean tattoo artist">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 6 -->
-
-                <div class="day-card" id="day6">
-                    <div class="day-header">
-                        <div class="day-number">6</div>
-                        <div class="day-info">
-                            <h3>Books, Markets & Final Explorations</h3>
-                            <p class="day-date">Friday, October 9</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-seoul">📍 Seoul & Paju</span>
-                    <div class="day-content">
-                        <p>Our final full day in Seoul is about soaking up any last experiences and doing some final shopping.</p>
-
-                        <h4>Morning: Namdaemun Market</h4>
-                        <p>Korea's oldest market—huge, historic, and covers everything from traditional Korean ingredients to clothing to housewares. Great place for last-minute gift shopping or picking up Korean snacks.</p>
-
-                        <h4>Afternoon: Arc.N.Book in Paju (1 hour from Seoul)</h4>
-                        <p>This might be the most beautiful bookstore you've ever seen. Arc.N.Book isn't just a bookstore—it's an architectural marvel, a cultural space, and a reader's dream.</p>
-
-                        <p><strong>Why It's Worth the Trip:</strong></p>
-                        <ul>
-                            <li>Architecturally stunning building</li>
-                            <li>Massive book collection (mostly Korean, but beautiful regardless)</li>
-                            <li>Art galleries and exhibition spaces</li>
-                            <li>Cafe with floor-to-ceiling windows</li>
-                            <li>Even if you can't read Korean, the space is incredible</li>
-                            <li>It's a pilgrimage for book lovers</li>
-                        </ul>
-
-                        <h4>Evening: Final Seoul Dinner & Packing</h4>
-                        <p>Last night in Seoul—time for a memorable dinner, then back to the hotel to pack for our flight to Tokyo tomorrow.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Arc.N.Book in Paju .png" alt="Arc.N.Book architecture">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 7 -->
-
-                <div class="day-card" id="day7">
-                    <div class="day-header">
-                        <div class="day-number">7</div>
-                        <div class="day-info">
-                            <h3>Seoul → Tokyo</h3>
-                            <p class="day-date">Saturday, October 10</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-transit">✈️ In Transit</span>
-                    <div class="day-content">
-                        <h4>Morning/Midday:</h4>
-                        <ul>
-                            <li>Check out of Seoul hotel</li>
-                            <li>Flight from Seoul Incheon (ICN) to Tokyo (Narita or Haneda)</li>
-                            <li>Flight time: 2.5 hours</li>
-                        </ul>
-
-                        <h4>Afternoon:</h4>
-                        <ul>
-                            <li>Arrive Tokyo</li>
-                            <li>Transfer to hotel</li>
-                            <li>Explore neighborhood around hotel</li>
-                            <li>Find dinner nearby</li>
-                            <li>Early night to rest up for first full Tokyo day</li>
-                        </ul>
-
-                        <p><strong>The Shift:</strong> Seoul's energy is vibrant and evolving; Tokyo's is hyper-efficient and layered. We're trading Korean BBQ for ramen, K-pop for anime, hanbok villages for ancient temples.</p>
-                    </div>
-                </div>
+        <!-- ── SEOUL ── -->
+        <div class="city-header">
+            <img src="/assets/images/vacation/Ikseon-dong-6.jpg" alt="Seoul">
+            <div>
+                <h3>Seoul, South Korea</h3>
+                <span class="city-dates caveat">Days 1–5 · Nov 2–6</span>
             </div>
         </div>
-    </section>
 
-    <!-- JAPAN SECTION -->
-    <section class="timeline-section" id="japan" style="background: white;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1.5rem;">🇯🇵 Part 2: Japan (9 nights)</h2>
-
-            <div style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
-                <p>Japan offers a perfect blend of urban excitement and mountain tranquility. In Tokyo, we'll explore the city's creative neighborhoods—Shimokitazawa for vintage treasures, Daikanyama for beautiful bookstores, and Golden Gai for intimate bar-hopping. A full day at Tokyo Disneyland provides pure fun, while our escape to Takayama in the Japanese Alps reveals traditional Japan at its finest. The journey culminates with Takayama's legendary morning markets, Hida beef feasts, and a traditional ryokan experience complete with kaiseki dining and possibly an onsen. We'll return to Tokyo for final explorations, free days to follow our interests, and memorable last moments in this incredible country.</p>
+        <!-- Day 1 -->
+        <div class="day-card seoul" id="day1">
+            <div class="day-top">
+                <span class="day-num">1</span>
+                <div class="day-info">
+                    <h3>Arrival & Recovery</h3>
+                    <span class="day-meta">Mon, Nov 2 · <span class="badge seoul">Seoul</span></span>
+                </div>
+                <div class="day-wx" id="wx-1"></div>
             </div>
-
-            <div class="timeline">
-                <!-- Day 8 -->
-
-                <div class="day-card" id="day8">
-                    <div class="day-header">
-                        <div class="day-number">8</div>
-                        <div class="day-info">
-                            <h3>Coffee, Books & Vintage Treasures</h3>
-                            <p class="day-date">Sunday, October 11</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-tokyo">📍 Tokyo</span>
-                    <div class="day-content">
-                        <p>Our first full day in Tokyo focuses on neighborhoods that showcase the city's creative soul—places where locals actually hang out.</p>
-
-                        <h4>Morning: Starbucks Reserve Roastery Tokyo</h4>
-                        <p>Yes, it's Starbucks, but this isn't your local strip mall location. The Starbucks Reserve Roastery in Nakameguro is a four-story temple to coffee, featuring rare beans, theatrical brewing methods, and stunning interior design. It's an experience.</p>
-
-                        <h4>Late Morning: Shimokitazawa - Vintage Paradise</h4>
-                        <p>If Seongsu-dong was Seoul's Brooklyn, Shimokitazawa is Tokyo's East Village—a maze of narrow streets packed with vintage shops, record stores, indie boutiques, and cozy cafes. This is THE neighborhood for vintage shopping in Tokyo.</p>
-
-                        <p><strong>What Makes Shimokitazawa Special:</strong></p>
-                        <ul>
-                            <li>Dozens of curated vintage clothing stores</li>
-                            <li>Better chance of finding larger sizes (Western vintage imports)</li>
-                            <li>Mix of affordable and high-end vintage</li>
-                            <li>Less overwhelming than Harajuku</li>
-                            <li>Walkable scale—cover the main area in an afternoon</li>
-                            <li>Local vibe—this is where young Tokyoites actually shop</li>
-                        </ul>
-
-                        <p><strong>Shopping Tips:</strong> Stores like "New York Joe Exchange" have large inventories. Many shops buy vintage from the US, so sizing is more friendly. Accessories and bags are always good bets.</p>
-
-                        <h4>Afternoon: Daikanyama Tsutaya Books</h4>
-                        <p>After the controlled chaos of Shimokitazawa, we head to the sophisticated calm of Daikanyama for one of the world's most beautiful bookstores. Tsutaya Books isn't just a bookstore—it's a lifestyle complex with three connected buildings housing books, magazines, music, a gallery, and a stunning cafe.</p>
-
-                        <p><strong>Why Book Lovers Must Visit:</strong> Curated selection of art, design, and travel books. Some English titles, but the aesthetic is universal. Connected Anjin lounge/cafe with amazing coffee. Can spend hours browsing even if you don't read Japanese.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Starbucks Reserve Roastery Tokyo.webp" alt="Starbucks Reserve Roastery Tokyo">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 9 -->
-
-                <div class="day-card" id="day9">
-                    <div class="day-header">
-                        <div class="day-number">9</div>
-                        <div class="day-info">
-                            <h3>Tokyo Disneyland</h3>
-                            <p class="day-date">Monday, October 12</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-tokyo">📍 Tokyo Disneyland</span>
-                    <div class="day-content">
-                        <p>Today is pure fun—no cultural enrichment required. Tokyo Disneyland and its sister park DisneySea are considered by many to be the best Disney parks in the world. The attention to detail, the efficiency, the unique attractions, and the Japanese approach to customer service create something special.</p>
-
-                        <h4>October Advantage</h4>
-                        <p>Halloween season at Tokyo Disney is elaborate. Special decorations, themed food, characters in costumes, and generally festive atmosphere.</p>
-
-                        <h4>Pro Tips:</h4>
-                        <ul>
-                            <li>Arrive at opening for shorter wait times</li>
-                            <li>Download the Tokyo Disney Resort app for wait times and mobile ordering</li>
-                            <li>Japanese Disney popcorn buckets are legendary (collectible designs)</li>
-                            <li>Table service restaurants should be booked in advance</li>
-                            <li>The park is efficient—you'll experience more than you think</li>
-                        </ul>
-
-                        <h4>What Makes Tokyo Disney Different:</h4>
-                        <ul>
-                            <li>Japanese crowd courtesy makes lines more pleasant</li>
-                            <li>Staff ("Cast Members") are exceptionally dedicated</li>
-                            <li>Food quality is higher than US parks</li>
-                            <li>Unique attractions (Pooh's Hunny Hunt, Monsters Inc. ride)</li>
-                            <li>Everything is impeccably clean</li>
-                            <li>Attention to detail everywhere</li>
-                        </ul>
-
-                        <p>This is a full day—expect to be there from opening until evening, tired but happy.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Tokyo Disneyland.jpg" alt="Tokyo Disneyland">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 10 -->
-
-                <div class="day-card" id="day10">
-                    <div class="day-header">
-                        <div class="day-number">10</div>
-                        <div class="day-info">
-                            <h3>Tokyo → Takayama</h3>
-                            <p class="day-date">Tuesday, October 13</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-transit">🚂 In Transit</span>
-                    <div class="day-content">
-                        <p>Today we leave Tokyo's intensity for the peaceful mountains of Gifu Prefecture. Takayama is everything Tokyo isn't—small, traditional, quiet, preserved. This is where you see the Japan of woodblock prints and period dramas.</p>
-
-                        <h4>Morning:</h4>
-                        <ul>
-                            <li>Check out of Tokyo hotel</li>
-                            <li>Board the JR Limited Express Wide View Hida train</li>
-                            <li>Travel time: 2.5 hours through increasingly mountainous scenery</li>
-                        </ul>
-
-                        <h4>The Journey Itself</h4>
-                        <p>The train ride from Tokyo to Takayama is scenic—watch the landscape change from urban sprawl to rice fields to mountains. The train is comfortable, has large windows, and occasionally provides great views of the Japanese Alps.</p>
-
-                        <h4>Arrive Takayama (Early Afternoon)</h4>
-                        <p>Takayama is small enough to grasp quickly but interesting enough to explore for days. The town center is compact, traditional, and immediately charming. As soon as you step out of the station, you'll feel the difference—cleaner air, mountain views, slower pace.</p>
-
-                        <h4>Afternoon Activities:</h4>
-                        <ul>
-                            <li>Check into our ryokan (traditional Japanese inn)</li>
-                            <li>Explore Takayama's old town (Sanmachi Suji)</li>
-                            <li>Wander the preserved Edo-period streets</li>
-                            <li>Browse sake breweries (many offer free tastings)</li>
-                            <li>Check out craft shops selling Takayama's famous woodwork</li>
-                        </ul>
-
-                        <h4>Evening: Traditional Ryokan Experience</h4>
-                        <p>Tonight is special—a real ryokan stay with all the traditional elements:</p>
-                        <ul>
-                            <li>Tatami mat rooms with futon bedding</li>
-                            <li>Yukata (casual kimono) provided to wear around the inn</li>
-                            <li>Traditional kaiseki dinner (multi-course seasonal meal)</li>
-                            <li>Possibly access to an onsen (hot spring bath)</li>
-                        </ul>
-
-                        <p><strong>Dinner:</strong> The kaiseki meal at the ryokan will be a highlight—beautifully presented seasonal dishes, local ingredients, Hida beef if we're lucky. This is Japanese hospitality at its finest.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Takayama.jpg" alt="Takayama old town streets">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TAKAYAMA SECTION -->
-    <section class="timeline-section" id="takayama">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1.5rem;">⛰️ Takayama Highlight</h2>
-
-            <div class="timeline">
-                <!-- Day 11 -->
-
-                <div class="day-card" id="day11">
-                    <div class="day-header">
-                        <div class="day-number">11</div>
-                        <div class="day-info">
-                            <h3>Takayama Morning Markets</h3>
-                            <p class="day-date">Wednesday, October 14</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-takayama">📍 Takayama</span>
-                    <div class="day-content">
-                        <p>Today is all about why we came to Takayama—the morning markets. Set your alarm early; this is worth waking up for.</p>
-
-                        <h4>Early Morning: Takayama Morning Markets (Both of Them)</h4>
-                        <p>Takayama has two morning markets that run every single day, year-round:</p>
-
-                        <p><strong>1. Miyagawa Morning Market</strong> (Along the Miyagawa River)</p>
-                        <ul>
-                            <li>60+ stalls stretching along the riverbank</li>
-                            <li>The larger and more famous of the two</li>
-                            <li>Stunning setting with mountain backdrop</li>
-                            <li>Local farmers selling produce, pickles, flowers</li>
-                            <li>Craft vendors with handmade items</li>
-                            <li>Snack stalls with hot food</li>
-                        </ul>
-
-                        <p><strong>2. Jinya-mae Morning Market</strong> (In front of Takayama Jinya)</p>
-                        <ul>
-                            <li>Smaller, more intimate feel</li>
-                            <li>Right in front of the old government building</li>
-                            <li>Traditional atmosphere</li>
-                            <li>Mix of produce and crafts</li>
-                        </ul>
-
-                        <h4>Why These Markets Are Special</h4>
-                        <p>These aren't created for tourists—they've been running for centuries and serve local residents. October is harvest season, so you'll see:</p>
-                        <ul>
-                            <li>Fresh autumn produce and mushrooms</li>
-                            <li>Traditional pickled vegetables</li>
-                            <li>Local honey and preserves</li>
-                            <li>Handmade crafts (woodwork, textiles)</li>
-                            <li>Fresh mochi and snacks</li>
-                            <li>Seasonal flowers</li>
-                        </ul>
-
-                        <p>The setting is what elevates it—mountain backdrop, river running alongside, traditional buildings framing the scene, crisp autumn air. If you love farmers markets, this is the platonic ideal.</p>
-
-                        <h4>Late Morning: Deeper Takayama Exploration</h4>
-                        <p><strong>Takayama Jinya</strong> (Old Government House) - Only surviving Edo-period government building in Japan. Well-preserved historical site that gives context to the region's history.</p>
-
-                        <p><strong>Sake Brewery Tours</strong> - Multiple small breweries offer tours and tastings. Takayama's mountain water makes excellent sake. Often free or very cheap to taste.</p>
-
-                        <p><strong>Merchant Houses</strong> - Several preserved homes open to the public. Shows how wealthy merchant families lived. Beautiful traditional architecture.</p>
-
-                        <h4>Lunch: Hida Beef</h4>
-                        <p>Takayama is famous for Hida beef—premium wagyu from Gifu Prefecture. It rivals Kobe beef but costs less and is less touristy. Find a restaurant serving Hida beef:</p>
-                        <ul>
-                            <li>Hida beef nigiri sushi</li>
-                            <li>Grilled Hida beef</li>
-                            <li>Hida beef ramen</li>
-                            <li>Traditional sukiyaki or shabu-shabu</li>
-                        </ul>
-
-                        <h4>Afternoon</h4>
-                        <p>More wandering, shopping for crafts, enjoying the peaceful atmosphere. This is a rare day with no rigid schedule—just soak it in.</p>
-
-                        <h4>Evening</h4>
-                        <p>Second night at the ryokan, another traditional dinner. Enjoy the slower pace and mountain quietness.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Takayama Morning Markets.jpg" alt="Takayama Morning Markets">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 12 -->
-
-                <div class="day-card" id="day12">
-                    <div class="day-header">
-                        <div class="day-number">12</div>
-                        <div class="day-info">
-                            <h3>Takayama → Tokyo</h3>
-                            <p class="day-date">Thursday, October 15</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-transit">🚂 In Transit</span>
-                    <div class="day-content">
-                        <h4>Morning (Optional):</h4>
-                        <ul>
-                            <li>Last chance to hit the morning markets if you want</li>
-                            <li>Or sleep in and enjoy a leisurely ryokan breakfast</li>
-                        </ul>
-
-                        <h4>Late Morning:</h4>
-                        <ul>
-                            <li>Check out of ryokan</li>
-                            <li>Explore Takayama for a final hour or two if desired</li>
-                            <li>Board the train back to Tokyo</li>
-                        </ul>
-
-                        <h4>Afternoon:</h4>
-                        <ul>
-                            <li>Arrive Tokyo</li>
-                            <li>Check into hotel (staying 3 more nights)</li>
-                            <li>Settle back into city rhythm</li>
-                            <li>Neighborhood exploration</li>
-                        </ul>
-
-                        <h4>Evening</h4>
-                        <p>Free to explore. Maybe revisit a neighborhood we liked, or try a new area. Tokyo has endless options for dinner.</p>
-
-                        <p><strong>The Reentry:</strong> After two nights in quiet, traditional Takayama, Tokyo will feel even more intense. That's intentional—the contrast makes you appreciate both places more.</p>
-                    </div>
-                </div>
-
-                <!-- Day 13 -->
-
-                <div class="day-card" id="day13">
-                    <div class="day-header">
-                        <div class="day-number">13</div>
-                        <div class="day-info">
-                            <h3>Tokyo Markets & Neighborhoods</h3>
-                            <p class="day-date">Friday, October 16</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-tokyo">📍 Tokyo</span>
-                    <div class="day-content">
-                        <p>Today we explore Tokyo's more local neighborhoods and hit a genuine farmers market—though nothing will quite match Takayama's morning markets, Tokyo has its own style.</p>
-
-                        <h4>Morning: UN University Farmers Market (Aoyama)</h4>
-                        <p>Every Saturday and Sunday, this organic farmers market sets up near the UN University building. It's small by American standards (20-30 vendors) but quality-focused:</p>
-                        <ul>
-                            <li>Organic vegetables from farms outside Tokyo</li>
-                            <li>Artisan bread and baked goods</li>
-                            <li>Local food producers</li>
-                            <li>Craft items</li>
-                            <li>Coffee and food stalls</li>
-                        </ul>
-
-                        <p>It's trendy and a bit expensive, but the quality is excellent and it's fun to see Tokyo's organic/sustainable food movement in action.</p>
-
-                        <h4>Late Morning/Afternoon: Neighborhood Exploration</h4>
-
-                        <p><strong>Option A: Kichijoji</strong> (West Tokyo)</p>
-                        <ul>
-                            <li>Consistently rated Tokyo's most livable neighborhood</li>
-                            <li>Inokashira Park (easy, pretty walk around a pond)</li>
-                            <li>Vintage shops and used bookstores</li>
-                            <li>Cozy residential feel</li>
-                            <li>Less touristy than central Tokyo</li>
-                        </ul>
-
-                        <p><strong>Option B: Nakameguro</strong></p>
-                        <ul>
-                            <li>Canal walk with cherry trees (beautiful even without blossoms)</li>
-                            <li>Boutique shopping</li>
-                            <li>Excellent cafes</li>
-                            <li>Hip but not frantic</li>
-                        </ul>
-
-                        <p><strong>Option C: More Shimokitazawa</strong> - If we loved it on Day 8, go back for more vintage hunting. Different shops open different days.</p>
-
-                        <h4>Evening: Golden Gai Bar Hopping</h4>
-                        <p>Tonight we experience one of Tokyo's most unique nightlife areas. Golden Gai in Shinjuku is a small district of narrow alleys packed with tiny bars—and I mean tiny. Most bars seat 5-8 people maximum.</p>
-
-                        <p><strong>What Makes Golden Gai Special:</strong></p>
-                        <ul>
-                            <li>Over 200 microscopic bars in a few blocks</li>
-                            <li>Each bar has its own theme, personality, clientele</li>
-                            <li>Intimate, quirky atmosphere</li>
-                            <li>Some bars charge cover fees (usually 500-1000 yen)</li>
-                            <li>It's an experience unique to Tokyo</li>
-                        </ul>
-
-                        <p><strong>Pro Tips:</strong> Look for bars with English signs or open doors (welcoming to newcomers). Don't just hit the first bar—wander and find one that appeals. Two-drink minimum is common. Cash only in most places.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Golden Gai alley .jpg" alt="Golden Gai alley">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 14 -->
-
-                <div class="day-card" id="day14">
-                    <div class="day-header">
-                        <div class="day-number">14</div>
-                        <div class="day-info">
-                            <h3>Free Day: Your Choice</h3>
-                            <p class="day-date">Saturday, October 17</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-tokyo">📍 Tokyo</span>
-                    <div class="day-content">
-                        <p>Today has no set plan—we can revisit favorite spots, tackle anything we missed, or try something completely new based on how we're feeling.</p>
-
-                        <h4>Possible Options</h4>
-
-                        <p><strong>If We Want More Shopping:</strong></p>
-                        <ul>
-                            <li>Akihabara (anime, gaming, electronics, otaku culture central)</li>
-                            <li>Harajuku (Takeshita Street for chaotic youth fashion)</li>
-                            <li>Omotesando (upscale shopping, people watching)</li>
-                        </ul>
-
-                        <p><strong>If We Want Culture:</strong></p>
-                        <ul>
-                            <li>TeamLab Borderless or TeamLab Planets (digital art museums—trippy and beautiful)</li>
-                            <li>Senso-ji Temple (Tokyo's oldest temple, in Asakusa)</li>
-                            <li>Tokyo National Museum (serious cultural education)</li>
-                        </ul>
-
-                        <p><strong>If We Want Nature:</strong></p>
-                        <ul>
-                            <li>Ueno Park (zoo, museums, peaceful walks)</li>
-                            <li>Hamarikyu Gardens (traditional garden with tea house)</li>
-                            <li>Yoyogi Park (people watching, street performers on weekends)</li>
-                        </ul>
-
-                        <p><strong>If We Want Food Adventures:</strong></p>
-                        <ul>
-                            <li>Tsukiji Outer Market (seafood and kitchen tools)</li>
-                            <li>Depachika crawl (department store basement food halls—incredible)</li>
-                            <li>Ramen tour of different neighborhoods</li>
-                        </ul>
-
-                        <p><strong>If We're Tired:</strong></p>
-                        <ul>
-                            <li>Chill day in a nice neighborhood</li>
-                            <li>Long lunch somewhere great</li>
-                            <li>Onsen/spa experience</li>
-                            <li>Early dinner and relaxed evening</li>
-                        </ul>
-
-                        <p>The beauty of having no plan is we can decide based on weather, energy, and mood.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/Akihabara.jpg" alt="Akihabara">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 15 -->
-
-                <div class="day-card" id="day15">
-                    <div class="day-header">
-                        <div class="day-number">15</div>
-                        <div class="day-info">
-                            <h3>Last Full Day</h3>
-                            <p class="day-date">Sunday, October 18</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-tokyo">📍 Tokyo</span>
-                    <div class="day-content">
-                        <p>Tomorrow morning marks the end of the trip, so today is about soaking up final Tokyo moments and any last must-dos.</p>
-
-                        <h4>Morning/Afternoon: Final Priorities</h4>
-                        <p>What haven't we done that we really wanted to? What neighborhood did we love and want to revisit? This is the day to make it happen.</p>
-
-                        <p><strong>Possible Priorities:</strong></p>
-                        <ul>
-                            <li>Any shopping we meant to do but didn't</li>
-                            <li>Revisiting favorite cafes or bookstores</li>
-                            <li>Taking photos in spots we loved</li>
-                            <li>Buying gifts or souvenirs</li>
-                            <li>Eating at a restaurant we've been wanting to try</li>
-                        </ul>
-
-                        <h4>Afternoon: Leisurely Pace</h4>
-                        <p>No rushing today. Take time to enjoy being in Tokyo without an agenda.</p>
-
-                        <h4>Evening: Memorable Final Dinner</h4>
-                        <p>Let's make this last night count. Options:</p>
-                        <ul>
-                            <li>Traditional izakaya for the full Japanese pub experience</li>
-                            <li>Upscale sushi if we haven't done that yet</li>
-                            <li>Themed restaurant (Tokyo has everything from robot shows to ninja performances)</li>
-                            <li>A neighborhood spot we've come to love</li>
-                        </ul>
-
-                        <h4>Night</h4>
-                        <p>Pack, prepare for departure tomorrow, soak in the last Tokyo evening.</p>
-
-                        <div class="day-image">
-                            <img src="/assets/images/vacation/last night.jpg" alt="Tokyo night skyline">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 16 -->
-
-                <div class="day-card" id="day16">
-                    <div class="day-header">
-                        <div class="day-number">16</div>
-                        <div class="day-info">
-                            <h3>Departure Day</h3>
-                            <p class="day-date">Monday, October 19</p>
-                        </div>
-                    </div>
-                    <span class="location-badge location-transit">✈️ Heading Home</span>
-                    <div class="day-content">
-                        <h4>Morning:</h4>
-                        <ul>
-                            <li>Final Tokyo breakfast</li>
-                            <li>Last-minute souvenir shopping if needed</li>
-                            <li>Check out of hotel</li>
-                            <li>Head to airport</li>
-                        </ul>
-
-                        <h4>Flight Home</h4>
-                        <p>Time to head back with incredible memories, amazing photos, and stories to tell for years.</p>
-
-                        <p style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--light-bg); font-style: italic;">This is the trip that becomes the story you tell for years. 17 days of markets, traditions, modern culture, incredible food, and unforgettable experiences across South Korea and Japan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cost Breakdown Section -->
-    <section id="cost" style="padding: 3rem 0; background: var(--light-bg);">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">How much will this cost?</h2>
-
-            <div style="max-width: 800px; margin: 0 auto 2rem; text-align: center;">
-                <p>Here's a realistic breakdown of costs for this 17-day adventure. Prices are in USD and based on 2025 rates for US travelers.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <!-- Flights -->
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">✈️ Flights</h3>
-                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">$800 - $1,500</div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">per person, round trip</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>From US to Seoul:</strong></p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 1rem;">
-                        <li style="margin-bottom: 0.5rem;">✈️ Spokane, WA: $1,100-$1,500</li>
-                        <li style="margin-bottom: 0.5rem;">✈️ Boise, ID: $900-$1,250</li>
-                        <li style="margin-bottom: 0.5rem;">✈️ Reno, NV: $1,000-$1,450</li>
-                        <li style="margin-bottom: 0.5rem;">✈️ Orlando, FL: $800-$850</li>
-                    </ul>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Internal flights:</strong></p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
-                        <li style="margin-bottom: 0.5rem;">📍 Seoul → Tokyo: ~$100-200</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);"><em>Tip: Book early and be flexible with connections for best prices. October is a great month for deals!</em></p>
-                </div>
-
-                <!-- Accommodation -->
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">🏨 Accommodation</h3>
-                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">$1,700 - $2,400</div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">per person (16 nights)</p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                        <li style="margin-bottom: 0.5rem;">🇰🇷 Seoul: $100-120/night (6 nights)</li>
-                        <li style="margin-bottom: 0.5rem;">🇯🇵 Tokyo: $100-200/night (7 nights)</li>
-                        <li style="margin-bottom: 0.5rem;">⛰️ Takayama: $150-200/night (2 nights)</li>
-                        <li style="margin-bottom: 0.5rem;">✈️ In-flight: Oct 2 & 19</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);"><em>Based on mid-range hotels. Sharing rooms cuts costs significantly!</em></p>
-                </div>
-
-                <!-- Food & Drinks -->
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">🍜 Food & Drinks</h3>
-                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">$680 - $950</div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">per person (17 days)</p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                        <li style="margin-bottom: 0.5rem;">🇰🇷 Seoul: $30-50/day</li>
-                        <li style="margin-bottom: 0.5rem;">🇯🇵 Tokyo: $40-60/day</li>
-                        <li style="margin-bottom: 0.5rem;">⛰️ Takayama: Included in ryokan</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);"><em>Street food, casual restaurants, and convenience stores keep costs low.</em></p>
-                </div>
-
-                <!-- Activities & Transport -->
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">🎫 Activities & Transport</h3>
-                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">$400 - $600</div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">per person</p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                        <li style="margin-bottom: 0.5rem;">🎢 Tokyo Disneyland: ~$75</li>
-                        <li style="margin-bottom: 0.5rem;">🚇 Subway/train cards: ~$100-150</li>
-                        <li style="margin-bottom: 0.5rem;">🏞️ Day trips & attractions: ~$150-200</li>
-                        <li style="margin-bottom: 0.5rem;">🎨 Museums & experiences: ~$75-175</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);"><em>Consider a JR Pass for Tokyo-Takayama trains.</em></p>
-                </div>
-
-                <!-- Shopping & Miscellaneous -->
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">🛍️ Shopping & Extras</h3>
-                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">$300 - $1,000+</div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">per person (highly variable)</p>
-                    <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                        <li style="margin-bottom: 0.5rem;">👕 Vintage shopping (Shimokitazawa, Seongsu-dong)</li>
-                        <li style="margin-bottom: 0.5rem;">🎁 Souvenirs & gifts</li>
-                        <li style="margin-bottom: 0.5rem;">💆 Tattoo (if getting one)</li>
-                        <li style="margin-bottom: 0.5rem;">📦 Shipping items home</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);"><em>This is entirely up to you!</em></p>
-                </div>
-
-                <!-- Total Estimate -->
-                <div style="background: linear-gradient(135deg, var(--accent-color), var(--accent-hover)); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); color: white;">
-                    <h3 style="color: white; margin-bottom: 1rem;">💰 Total Estimated Cost</h3>
-                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: white;">$3,900 - $6,500</div>
-                    <p style="font-size: 0.9rem; color: white; margin-bottom: 1rem;">per person (excluding shopping)</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: white;">This is for a comfortable, mid-range experience with nice hotels, good food, and all major activities. <strong>Budget-conscious travelers can do this trip for $3,000-$3,500</strong> by staying in hostels, eating street food, and skipping some activities. Luxury travelers will spend more.</p>
-                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: white;"><strong>💡 Pro tip:</strong> Sharing hotel rooms and booking flights early can save $1,000+ per person!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Practical Info Section -->
-    <section id="practical" style="padding: 4rem 0; background: white;">
-        <div class="container" style="max-width: 1200px;">
-            <h2 style="text-align: center; margin-bottom: 3rem;">📋 Practical Information</h2>
-
-            <!-- Both Countries Section -->
-            <div style="background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 3rem;">
-                <h3 style="color: var(--accent-color); margin-bottom: 2rem; font-size: 1.8rem; text-align: center;">🌏 Both Countries</h3>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <p class="day-summary">Land in Seoul → settle into hotel → neighborhood walk → first Korean meal → early bed</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🚫 No Tipping</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Tipping is not done in either country. In Japan, it can actually be considered rude. In Japan, you may be automatically charged an "otoshi" (appetizer/seat charge) - this cannot be refused and is normal.</p>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍙">Convenience store run — <strong>Banana Milk</strong>, Samgak Gimbap, Choco Pie</li>
+                            <li data-icon="🍲">Ask your hotel for the nearest local Korean restaurant</li>
+                        </ul>
                     </div>
-
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🚶 No Jaywalking</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Do not jaywalk in either country! Both take pedestrian laws seriously. Always wait for the signal, even if the street looks clear.</p>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="💳">Get <strong>T-Money cards</strong> at Incheon Airport</li>
+                            <li data-icon="📱">Download <strong>Naver Maps</strong> (Google Maps doesn't work well here)</li>
+                        </ul>
                     </div>
+                </div>
+            </details>
+        </div>
 
+        <!-- Day 2 -->
+        <div class="day-card seoul" id="day2">
+            <div class="day-top">
+                <span class="day-num">2</span>
+                <div class="day-info">
+                    <h3>Markets & Traditional Seoul</h3>
+                    <span class="day-meta">Tue, Nov 3 · <span class="badge seoul">Seoul</span></span>
+                </div>
+                <div class="day-wx" id="wx-2"></div>
+            </div>
+            <p class="day-summary">Gwangjang Market street food → Ikseon-dong hanok cafes & shops</p>
+            <div class="day-photo"><img src="/assets/images/vacation/Ikseon-dong-6.jpg" alt="Ikseon-dong"><span class="caption">Ikseon-dong alleyways</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">👟 Shoes Off Indoors</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">If you see a pile of shoes near the door or temporary slippers, take off your shoes. This happens in homes, some restaurants, temples, and even some hotels (yes, even fancy hotel lobbies!).</p>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🥞"><a href="https://www.google.com/maps/search/?api=1&query=Wonjo+Sunhui+Bindaetteok+Gwangjang+Market+Seoul" target="_blank" rel="noopener">Wonjo Sunhui Bindaetteok</a> — mung bean pancakes</li>
+                            <li data-icon="🍙"><a href="https://www.google.com/maps/search/?api=1&query=Mayak+Gimbap+Gwangjang+Market+Seoul" target="_blank" rel="noopener">Mayak Gimbap stalls</a> — addictive mini rice rolls</li>
+                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Gohyang+Kalguksu+Gwangjang+Market+Seoul" target="_blank" rel="noopener">Gohyang Kalguksu</a> — knife-cut noodles (Netflix famous)</li>
+                            <li data-icon="🍰"><a href="https://www.google.com/maps/search/?api=1&query=Cheong+Su+Dang+Ikseon-dong+Seoul" target="_blank" rel="noopener">Cheong Su Dang</a> — castella cakes in a hanok</li>
+                            <li data-icon="☕"><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Onion+Ikseon-dong+Seoul" target="_blank" rel="noopener">Cafe Onion</a> — pastries in a spacious renovated hanok</li>
+                        </ul>
                     </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🏘️"><a href="https://www.google.com/maps/search/?api=1&query=Ikseon-dong+Hanok+Village+Seoul" target="_blank" rel="noopener">Ikseon-dong alleyways</a> — wander the narrow hanok lanes</li>
+                            <li data-icon="⛩️"><a href="https://www.google.com/maps/search/?api=1&query=Tapgol+Park+Pagoda+Park+Seoul" target="_blank" rel="noopener">Tapgol Park</a> — 10-story pagoda, 5 min from market</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
 
+        <!-- Day 3 -->
+        <div class="day-card seoul" id="day3">
+            <div class="day-top">
+                <span class="day-num">3</span>
+                <div class="day-info">
+                    <h3>K-Beauty & Vintage</h3>
+                    <span class="day-meta">Wed, Nov 4 · <span class="badge seoul">Seoul</span></span>
+                </div>
+                <div class="day-wx" id="wx-3"></div>
+            </div>
+            <p class="day-summary">Seongsu-dong coffee & beauty flagships → Hongdae street food & nightlife</p>
+            <div class="day-photo"><img src="/assets/images/vacation/Seongsu-dong.jpg" alt="Seongsu-dong"><span class="caption">Seongsu-dong vibes</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🗑️ Trash Cans are RARE</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Public trash cans are hard to find in both countries. Bring a small bag or sling bag to carry your trash and purchases until you find a bin (often at convenience stores).</p>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="☕"><a href="https://www.google.com/maps/search/?api=1&query=Nudake+Seongsu-dong+Seoul" target="_blank" rel="noopener">Nudake</a> — avant-garde desserts & espresso</li>
+                            <li data-icon="🍞"><a href="https://www.google.com/maps/search/?api=1&query=Lowide+Coffee+Bakery+Seongsu+Seoul" target="_blank" rel="noopener">Lowide Coffee</a> — creamy stuffed salt bread</li>
+                            <li data-icon="🌮"><a href="https://www.google.com/maps/search/?api=1&query=Hongdae+Street+Food+Alley+Seoul" target="_blank" rel="noopener">Hongdae pojangmacha</a> — hotteok, bungeoppang, chicken skewers after 7 PM</li>
+                        </ul>
                     </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="💄"><a href="https://www.google.com/maps/search/?api=1&query=Olive+Young+N+Seongsu+Seoul" target="_blank" rel="noopener">Olive Young N Seongsu</a> — biggest in Korea</li>
+                            <li data-icon="🖼️"><a href="https://www.google.com/maps/search/?api=1&query=Tamburins+Seongsu+Flagship+Seoul" target="_blank" rel="noopener">Tamburins</a> — half gallery, half beauty store</li>
+                            <li data-icon="🕶️"><a href="https://www.google.com/maps/search/?api=1&query=Gentle+Monster+Hongdae+Seoul" target="_blank" rel="noopener">Gentle Monster</a> — art installations change every 25 days</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
 
+        <!-- Day 4 -->
+        <div class="day-card seoul" id="day4">
+            <div class="day-top">
+                <span class="day-num">4</span>
+                <div class="day-info">
+                    <h3>Tattoo Day</h3>
+                    <span class="day-meta">Thu, Nov 5 · <span class="badge seoul">Seoul</span></span>
+                </div>
+                <div class="day-wx" id="wx-4"></div>
+            </div>
+            <p class="day-summary">Nicole's tattoo appointment (Hongdae) → Dongmyo Flea Market → Myeongdong evening</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🧺 Carry a Small Cloth (Japan)</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">In Tokyo especially, bring a small hand towel/cloth. Many Japanese bathrooms lack paper towels or hand dryers (and sometimes soap!). The cloth is also useful for wiping sweat. Many locals carry one.</p>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍚"><a href="https://www.google.com/maps/search/?api=1&query=Gohyang+Sikdang+Dongmyo+Seoul" target="_blank" rel="noopener">Gohyang Sikdang</a> — DIY bibimbap for 6,000 Won</li>
+                            <li data-icon="🥞"><a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Night+Market+Street+Food+Seoul" target="_blank" rel="noopener">Myeongdong street food</a> — hotteok, tanghulu, egg bread</li>
+                        </ul>
                     </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🛍️"><a href="https://www.google.com/maps/search/?api=1&query=Dongmyo+Flea+Market+Seoul" target="_blank" rel="noopener">Dongmyo Flea Market</a> — Seoul's biggest vintage treasure hunt</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
 
+        <!-- Day 5 -->
+        <div class="day-card seoul" id="day5">
+            <div class="day-top">
+                <span class="day-num">5</span>
+                <div class="day-info">
+                    <h3>Nami Island & Gardens</h3>
+                    <span class="day-meta">Fri, Nov 6 · <span class="badge seoul">Gapyeong Day Trip</span></span>
+                </div>
+                <div class="day-wx" id="wx-5"></div>
+            </div>
+            <p class="day-summary">Train to Gapyeong → Nami Island tree-lined paths → Garden of Morning Calm</p>
+            <div class="day-photo"><img src="/assets/images/vacation/garden of morning calm.webp" alt="Garden of Morning Calm"><span class="caption">Garden of Morning Calm</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
                     <div>
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🍽️ Restaurant Etiquette</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;"><strong>Korea:</strong> Go up to the counter to pay. Don't wait for the bill.<br><strong>Japan:</strong> Shout "Sumimasen!" (excuse me) to get the waiter's attention - it's normal and not rude. They won't check on you otherwise.</p>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍲"><a href="https://www.google.com/maps/search/?api=1&query=Nammoon+Restaurant+Nami+Island" target="_blank" rel="noopener">Nammoon</a> — bulgogi & bibimbap on the island</li>
+                            <li data-icon="🐔"><a href="https://www.google.com/maps/search/?api=1&query=Kkokko+Dakgalbi+Chuncheon+Chicken+Ribs+Nami+Island+Gapyeong" target="_blank" rel="noopener">Kko Kko Dakgalbi</a> — Chuncheon-style stir-fried chicken</li>
+                        </ul>
                     </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🌳">Metasequoia Lane on Nami Island — the famous tree tunnel</li>
+                            <li data-icon="🌸"><a href="https://www.google.com/maps/search/?api=1&query=Garden+of+Morning+Calm+Gapyeong" target="_blank" rel="noopener">Garden of Morning Calm</a> — autumn chrysanthemum displays</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 6 (Transit) -->
+        <div class="day-card transit" id="day6">
+            <div class="day-top">
+                <span class="day-num">6</span>
+                <div class="day-info">
+                    <h3>Seoul → Tokyo</h3>
+                    <span class="day-meta">Sat, Nov 7 · <span class="badge transit">Transit</span></span>
+                </div>
+                <div class="day-wx" id="wx-6"></div>
+            </div>
+            <p class="day-summary">Morning flight to Tokyo → settle in → explore neighborhood → first ramen!</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍜">Your first ramen! Ask the hotel for a local spot</li>
+                            <li data-icon="🍙">Konbini (convenience store) onigiri — tuna mayo is the classic</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="💳">Get a <strong>Suica/Pasmo IC card</strong> at the airport</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ── TOKYO ── -->
+        <div class="city-header">
+            <img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Tokyo">
+            <div>
+                <h3>Tokyo, Japan</h3>
+                <span class="city-dates caveat">Days 7–9 · Nov 8–10</span>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card tokyo" id="day7">
+            <div class="day-top">
+                <span class="day-num">7</span>
+                <div class="day-info">
+                    <h3>Vintage & Books</h3>
+                    <span class="day-meta">Sun, Nov 8 · <span class="badge tokyo">Tokyo</span></span>
+                </div>
+                <div class="day-wx" id="wx-7"></div>
+            </div>
+            <p class="day-summary">Shimokitazawa vintage shops → Daikanyama Tsutaya Books → cozy cafes</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🥞"><a href="https://www.google.com/maps/search/?api=1&query=Flippers+Souffle+Pancakes+Shimokitazawa+Tokyo" target="_blank" rel="noopener">Flipper's</a> — famous souffle pancakes</li>
+                            <li data-icon="☕"><a href="https://www.google.com/maps/search/?api=1&query=Ogawa+Coffee+Laboratory+Shimokitazawa+Tokyo" target="_blank" rel="noopener">Ogawa Coffee</a> — flannel pour-over perfection</li>
+                            <li data-icon="🍸"><a href="https://www.google.com/maps/search/?api=1&query=Anjin+Lounge+Daikanyama+Tsutaya+Books+Tokyo" target="_blank" rel="noopener">Anjin Lounge</a> — cocktails surrounded by 30,000 books</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="👕"><a href="https://www.google.com/maps/search/?api=1&query=New+York+Joe+Exchange+Shimokitazawa+Tokyo" target="_blank" rel="noopener">New York Joe Exchange</a> — vintage shop in a bathhouse</li>
+                            <li data-icon="👔"><a href="https://www.google.com/maps/search/?api=1&query=Chicago+Vintage+Shimokitazawa+Tokyo" target="_blank" rel="noopener">Chicago Shimokitazawa</a> — 25+ years of American vintage</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="day-card tokyo" id="day8">
+            <div class="day-top">
+                <span class="day-num">8</span>
+                <div class="day-info">
+                    <h3>Tokyo Disneyland!</h3>
+                    <span class="day-meta">Mon, Nov 9 · <span class="badge tokyo">Tokyo</span></span>
+                </div>
+                <div class="day-wx" id="wx-8"></div>
+            </div>
+            <p class="day-summary">Full day of magic! Arrive at opening, stay for fireworks</p>
+            <div class="day-photo"><img src="/assets/images/vacation/Tokyo Disneyland.jpg" alt="Tokyo Disneyland"><span class="caption">The happiest place</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🏴‍☠️"><a href="https://www.google.com/maps/search/?api=1&query=Blue+Bayou+Restaurant+Tokyo+Disneyland" target="_blank" rel="noopener">Blue Bayou</a> — dine inside the Pirates ride (book ahead!)</li>
+                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=China+Voyager+Tokyo+Disneyland" target="_blank" rel="noopener">China Voyager</a> — best counter-service ramen in the park</li>
+                            <li data-icon="🍛"><a href="https://www.google.com/maps/search/?api=1&query=Hungry+Bear+Restaurant+Tokyo+Disneyland" target="_blank" rel="noopener">Hungry Bear</a> — comforting Japanese curry rice</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🍿"><strong>Popcorn buckets!</strong> Collectible + unique flavors (curry, soy butter). Refills 600 yen</li>
+                            <li data-icon="👽"><strong>Little Green Men Mochi</strong> — Toy Story alien-shaped, too cute to eat</li>
+                            <li data-icon="📱">Download the <strong>Tokyo Disney Resort app</strong> for wait times & mobile ordering</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="day-card tokyo" id="day9">
+            <div class="day-top">
+                <span class="day-num">9</span>
+                <div class="day-info">
+                    <h3>Classic Tokyo</h3>
+                    <span class="day-meta">Tue, Nov 10 · <span class="badge tokyo">Tokyo</span></span>
+                </div>
+                <div class="day-wx" id="wx-9"></div>
+            </div>
+            <p class="day-summary">Senso-ji Temple in Asakusa → Ueno Park → evening bar-hopping in Golden Gai</p>
+            <div class="day-photo"><img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Golden Gai"><span class="caption">Golden Gai at night</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍈"><a href="https://www.google.com/maps/search/?api=1&query=Asakusa+Kagetsudo+Melon+Pan+Tokyo" target="_blank" rel="noopener">Kagetsudo</a> — legendary hot melon pan since 1945</li>
+                            <li data-icon="🍙"><a href="https://www.google.com/maps/search/?api=1&query=Yadoroku+Onigiri+Asakusa+Tokyo" target="_blank" rel="noopener">Yadoroku</a> — Tokyo's oldest onigiri shop</li>
+                            <li data-icon="🍢"><a href="https://www.google.com/maps/search/?api=1&query=Asakusa+Kokonoe+Age+Manju+Tokyo" target="_blank" rel="noopener">Kokonoe</a> — deep-fried sweet buns (matcha, sesame, pumpkin)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Golden Gai Bars</h4>
+                        <ul>
+                            <li data-icon="🥃"><a href="https://www.google.com/maps/search/?api=1&query=Albatross+Bar+Golden+Gai+Shinjuku+Tokyo" target="_blank" rel="noopener">Albatross G</a> — chandeliers, whiskey, vintage art</li>
+                            <li data-icon="🍶"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Araku+Golden+Gai+Shinjuku+Tokyo" target="_blank" rel="noopener">Bar Araku</a> — leave a foreign bill on the "currency wall"</li>
+                            <li data-icon="🎵"><a href="https://www.google.com/maps/search/?api=1&query=Kenzos+Bar+Golden+Gai+Shinjuku+Tokyo" target="_blank" rel="noopener">Kenzo's Bar</a> — 80s music, leopard print, everyone's welcome</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 10 (Transit) -->
+        <div class="day-card transit" id="day10">
+            <div class="day-top">
+                <span class="day-num">10</span>
+                <div class="day-info">
+                    <h3>Into the Mountains</h3>
+                    <span class="day-meta">Wed, Nov 11 · <span class="badge transit">Tokyo → Gujo</span></span>
+                </div>
+                <div class="day-wx" id="wx-10"></div>
+            </div>
+            <p class="day-summary">Shinkansen to Nagoya → bus to Gujo Hachiman → evening stroll with koi in the canals</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍱"><strong>Ekiben!</strong> Train bento from Tokyo Station — a whole experience</li>
+                            <li data-icon="🍗"><a href="https://www.google.com/maps/search/?api=1&query=Izumisaka+Gujo+Hachiman" target="_blank" rel="noopener">Izumisaka</a> — kei-chan chicken (Gujo's signature dish)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🐟">Evening canal walk — the <strong>koi fish are magical at dusk</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ── GUJO & TAKAYAMA ── -->
+        <div class="city-header">
+            <img src="/assets/images/vacation/Takayama.jpg" alt="Mountains">
+            <div>
+                <h3>Gujo Hachiman & Takayama</h3>
+                <span class="city-dates caveat">Days 11–13 · Nov 12–14</span>
+            </div>
+        </div>
+
+        <!-- Day 11 -->
+        <div class="day-card gujo" id="day11">
+            <div class="day-top">
+                <span class="day-num">11</span>
+                <div class="day-info">
+                    <h3>Koi Fish Town</h3>
+                    <span class="day-meta">Thu, Nov 12 · <span class="badge gujo">Gujo Hachiman</span></span>
+                </div>
+                <div class="day-wx" id="wx-11"></div>
+            </div>
+            <p class="day-summary">Koi canal walk → castle with autumn leaves → food replica workshop → zen temple</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🐟"><a href="https://www.google.com/maps/search/?api=1&query=Shinbashi-tei+Gujo+Hachiman" target="_blank" rel="noopener">Shinbashi-tei</a> — ayu sweetfish on the Yoshida River</li>
+                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Soba+Hirajin+Gujo+Hachiman" target="_blank" rel="noopener">Soba no Hirajin</a> — handmade soba by the river</li>
+                            <li data-icon="🥩"><a href="https://www.google.com/maps/search/?api=1&query=Daihachi+Restaurant+Gujo+Hachiman" target="_blank" rel="noopener">Daihachi</a> — sukiyaki & Hida beef</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🍣"><a href="https://www.google.com/maps/search/?api=1&query=Sample+Kobo+Food+Replica+Workshop+Gujo+Hachiman" target="_blank" rel="noopener">Sample Kobo</a> — make your own fake food! 900–3,000 yen</li>
+                            <li data-icon="🏯"><a href="https://www.google.com/maps/search/?api=1&query=Gujo+Hachiman+Castle" target="_blank" rel="noopener">Gujo Hachiman Castle</a> — autumn leaves, mountain views</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 12 -->
+        <div class="day-card takayama" id="day12">
+            <div class="day-top">
+                <span class="day-num">12</span>
+                <div class="day-info">
+                    <h3>Little Kyoto of the Mountains</h3>
+                    <span class="day-meta">Fri, Nov 13 · <span class="badge takayama">Takayama</span></span>
+                </div>
+                <div class="day-wx" id="wx-12"></div>
+            </div>
+            <p class="day-summary">Morning markets → sake brewery tastings → Hida beef lunch → old town streets</p>
+            <div class="day-photo"><img src="/assets/images/vacation/Takayama Morning Markets.jpg" alt="Takayama"><span class="caption">Miyagawa Morning Market</span></div>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍡"><a href="https://www.google.com/maps/search/?api=1&query=Miyagawa+Morning+Market+Takayama" target="_blank" rel="noopener">Miyagawa Market</a> — gohei mochi, beef croquettes, cookie cup coffee</li>
+                            <li data-icon="🥩"><a href="https://www.google.com/maps/search/?api=1&query=Hidagyu+Maruaki+Takayama" target="_blank" rel="noopener">Hidagyu Maruaki</a> — Hida beef yakiniku (they own the farm!)</li>
+                            <li data-icon="🥩"><a href="https://www.google.com/maps/search/?api=1&query=Kitchen+Hida+Takayama" target="_blank" rel="noopener">Kitchen Hida</a> — A5 Tobigyu grade teppan steak</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🍶"><a href="https://www.google.com/maps/search/?api=1&query=Funasaka+Sake+Brewery+Takayama" target="_blank" rel="noopener">Funasaka Brewery</a> — free tastings, year-round</li>
+                            <li data-icon="🍶"><a href="https://www.google.com/maps/search/?api=1&query=Hirase+Sake+Brewery+Takayama" target="_blank" rel="noopener">Hirase Brewery</a> — 400 years old, unlimited 30-min tasting</li>
+                            <li data-icon="🏘️"><a href="https://www.google.com/maps/search/?api=1&query=Sanmachi+Suji+Takayama" target="_blank" rel="noopener">Sanmachi Suji</a> — Edo-period old town streets</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 13 (Transit) -->
+        <div class="day-card transit" id="day13">
+            <div class="day-top">
+                <span class="day-num">13</span>
+                <div class="day-info">
+                    <h3>Back to Tokyo</h3>
+                    <span class="day-meta">Sat, Nov 14 · <span class="badge transit">Gujo → Tokyo</span></span>
+                </div>
+                <div class="day-wx" id="wx-13"></div>
+            </div>
+            <p class="day-summary">Last morning canal walk → train to Tokyo → final evening together</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍢"><a href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Memory+Lane+Shinjuku+Tokyo" target="_blank" rel="noopener">Omoide Yokocho</a> — yakitori in smoky alleys by Shinjuku Station</li>
+                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Ramen+Nagi+Golden+Gai+Shinjuku+Tokyo" target="_blank" rel="noopener">Ramen Nagi</a> — 24hr, perfect post-bar ramen</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🐟">One last look at the koi canals in morning light</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ── FINAL DAYS ── -->
+        <div class="city-header">
+            <img src="/assets/images/vacation/Golden Gai alley.jpg" alt="Tokyo">
+            <div>
+                <h3>Final Days</h3>
+                <span class="city-dates caveat">Days 14–15 · Nov 15–16</span>
+            </div>
+        </div>
+
+        <!-- Day 14 -->
+        <div class="day-card tokyo" id="day14">
+            <div class="day-top">
+                <span class="day-num">14</span>
+                <div class="day-info">
+                    <h3>Last Tokyo Day</h3>
+                    <span class="day-meta">Sun, Nov 15 · <span class="badge tokyo">Tokyo</span></span>
+                </div>
+                <div class="day-wx" id="wx-14"></div>
+            </div>
+            <p class="day-summary">Final shopping → revisit favorites → farewell dinner</p>
+            <details class="day-recs">
+                <summary>Eat & Explore</summary>
+                <div class="recs-grid">
+                    <div>
+                        <h4>🍜 Eat Here</h4>
+                        <ul>
+                            <li data-icon="🍣"><a href="https://www.google.com/maps/search/?api=1&query=Nemuro+Hanamaru+KITTE+Tokyo+Station" target="_blank" rel="noopener">Nemuro Hanamaru</a> — Hokkaido conveyor sushi, 150–500 yen/plate</li>
+                            <li data-icon="🍣"><a href="https://www.google.com/maps/search/?api=1&query=Katsu+Midori+Sushi+Shibuya+Tokyo" target="_blank" rel="noopener">Katsu Midori</a> — big portions, great value in Shibuya</li>
+                            <li data-icon="🍜"><a href="https://www.google.com/maps/search/?api=1&query=Fuunji+Ramen+Shinjuku+Tokyo" target="_blank" rel="noopener">Fuunji</a> — legendary tsukemen (dipping ramen)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✨ Don't Miss</h4>
+                        <ul>
+                            <li data-icon="🛍️">Stock up on <strong>Japanese snacks & souvenirs</strong></li>
+                            <li data-icon="🍶">Revisit any favorite spots from earlier</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Day 15 -->
+        <div class="day-card transit" id="day15">
+            <div class="day-top">
+                <span class="day-num">15</span>
+                <div class="day-info">
+                    <h3>Departure</h3>
+                    <span class="day-meta">Mon, Nov 16 · <span class="badge transit">Heading Home</span></span>
+                </div>
+                <div class="day-wx" id="wx-15"></div>
+            </div>
+            <p class="day-summary">Final breakfast → airport → fly home with incredible memories ✈️</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════ WHERE WE'RE STAYING ═══════════════ -->
+<section id="stays">
+    <div class="container">
+        <h2 class="section-title">Where We're Staying</h2>
+        <p class="section-sub">updated as we book!</p>
+
+        <div class="stays-phase">
+            <h3>Seoul <span class="badge seoul">Nov 2–7 · 5 nights</span></h3>
+            <div class="stays-grid">
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD</div>
+                    <div class="stay-guests">Ben & Nicole</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
+                </div>
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD</div>
+                    <div class="stay-guests">Ashley, Marissa</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
                 </div>
             </div>
-
-            <div class="country-columns" style="margin-bottom: 3rem;">
-                <!-- South Korea Column -->
-                <div style="background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 2rem; font-size: 1.8rem; text-align: center;">🇰🇷 South Korea</h3>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">💳 T-Money Card</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Get a T-Money card at the airport immediately. It works for subway, buses, taxis, and even some convenience stores. Rechargeable and essential!</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🗺️ Navigation</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Use <strong>Naver Maps</strong> instead of Google Maps. Google Maps doesn't work well in Korea. Naver is accurate and has English support.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🤝 Giving & Receiving</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">When giving or receiving something (like a receipt or credit card), use both hands. It's seen as polite and respectful.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🚕 Taxis</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;"><strong>Avoid black taxis!</strong> They're "Deluxe" taxis and very expensive. Use the <strong>Kakao Taxi app</strong> instead. Note: Taxis are expensive after 10pm.</p>
-                    </div>
-
-                    <div style="margin-bottom: 0;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">⚠️ Cult Awareness</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Watch out for people approaching you about psychic stuff, your aura, or saying "you have a good vibe." These are often cult recruiters. Koreans generally don't approach strangers randomly.</p>
-                    </div>
-                </div>
-
-                <!-- Japan Column -->
-                <div style="background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 2rem; font-size: 1.8rem; text-align: center;">🇯🇵 Japan</h3>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">💴 Cash is King</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Many places don't accept cards. Always carry cash. 7-Eleven ATMs work with foreign cards and are everywhere.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🚇 IC Cards</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Get a Suica or Pasmo card at any train station. Works on all trains, subways, and many vending machines. Rechargeable and super convenient.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🎫 JR Pass</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Consider a 7-day JR Pass for the Tokyo-Takayama portion. It covers the expensive limited express trains and can save you money.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">💬 Language</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">More English signage than Korea, especially in Tokyo. Google Translate's camera function is invaluable for menus and signs.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🍜 Eating Etiquette</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Eating while walking is generally frowned upon. Find a spot to stop and eat, or eat at the shop/stall.</p>
-                    </div>
-
-                    <div style="margin-bottom: 0;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🤫 Train Manners</h4>
-                        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">Be quiet on trains. Phone calls are not acceptable. Put your phone on silent and text instead.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" style="padding: 4rem 0; background: white;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
-
-            <div style="display: grid; gap: 2rem;">
-                <!-- FAQ 1 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">Do I need to speak Japanese or Korean in order to go?</h3>
-                    <p style="margin: 0;">No you don't. Knowing a few good phrases can help, but Google Translate is really awesome too. I don't know any Korean but I'm planning on studying some with Pimsleur a month or so before I go. I find that knowing how to say phrases like "Excuse me", "Thank you", "Sorry", and "That please (while pointing)" helps make it through 90% of interactions. Plus most large cities have many people that speak English. Takayama might have less English speakers, but you can still get around I'm sure. Just be polite and nice and try your best. They will love you for it.</p>
+        <div class="stays-phase">
+            <h3>Tokyo <span class="badge tokyo">Nov 8–11 · 3 nights</span></h3>
+            <div class="stays-grid">
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD</div>
+                    <div class="stay-guests">Ben, Nicole, Ashley</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
                 </div>
-
-                <!-- FAQ 2 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">What will the weather be like in October?</h3>
-                    <p style="margin: 0;">October is one of the best times to visit! Both South Korea and Japan experience pleasant fall weather with comfortable temperatures. Expect daytime temperatures around 60-70°F (15-21°C) in Seoul and Tokyo, with cooler mornings and evenings around 50-55°F (10-13°C). Takayama in the mountains will be cooler, around 45-60°F (7-15°C). There's a chance of occasional rain, but generally sunny and mild. <strong>Clothing advice:</strong> Pack layers! Bring light sweaters or cardigans, a light jacket, comfortable walking shoes, and a compact rain jacket or umbrella. You'll want long pants and maybe some long-sleeve shirts, but short sleeves work for the afternoon. The layering approach is key since temperatures can vary throughout the day.</p>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">Can I bring XYZ? (Kids, friends, someone not on the list on this page?)</h3>
-                    <p style="margin: 0;">Yes! I very much consider these independent vacations that just all happen to be in the same towns/countries. I recommend talking with each other if you want to plan certain things. Like for example, if Mel & Joel want to bring their kids they might be able to rent a full house and have Michael & Marissa and the kids come too. You would just have to coordinate that yourselves. Or you can make it an adults only trip and be more independent. Anything is fine.</p>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">I really want to go to Kyoto/Osaka/somewhere not on the list!</h3>
-                    <p style="margin: 0;">Feel free to do so! This page is what Nicole and I are planning on doing that way you know times and places you can meet up with us if you so choose. Maybe you don't spend any time in Tokyo and you just have a beer with us at Golden Gai towards the end of the trip. That's totally fine! Alternatively, maybe you like this itinerary and you want to do the whole thing with us. That's cool too!</p>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">What should I pack?</h3>
-                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem; line-height: 1.8;">
-                        <li>Comfortable walking shoes (15,000+ steps daily)</li>
-                        <li>Layers (October varies - cool mornings, warm afternoons)</li>
-                        <li>Day backpack for purchases and water</li>
-                        <li>Portable battery pack for phones</li>
-                        <li>Light rain jacket (occasional October rain)</li>
-                    </ul>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">What apps should I download to prepare for this trip?</h3>
-                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem; line-height: 1.8;">
-                        <li><strong>Korea:</strong> Naver Maps, Papago translator, Kakao Taxi</li>
-                        <li><strong>Japan:</strong> Google Maps, HyperDia (trains)</li>
-                        <li><strong>Both:</strong> Google Translate (download offline languages)</li>
-                        <li>Tokyo Disney Resort App (for Disneyland day)</li>
-                    </ul>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.2rem;">What if I don't know everyone on this trip?</h3>
-                    <p style="margin: 0;">I know that not everyone knows each other, but you all know me and/or Nicole. If you are seeing this page I think you are cool and I have good taste so I'm sure you will think everyone else is cool. The only not cool person coming is Miguel, but that can't be helped. I invited him already and now it's way too awkward to uninvite him. I hope he doesn't read this FAQ.</p>
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD</div>
+                    <div class="stay-guests">Marissa</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer-simple">
-        <div class="container">
-            <p>&copy; 2025 Ben Schoeffler | Japan & South Korea Adventure 2026</p>
+        <div class="stays-phase">
+            <h3>Gujo Hachiman <span class="badge gujo">Nov 11–14 · 3 nights</span></h3>
+            <div class="stays-grid">
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD (Ryokan)</div>
+                    <div class="stay-guests">Everyone</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <!-- Minimal JavaScript -->
-    <script src="/assets/js/main.js"></script>
+        <div class="stays-phase">
+            <h3>Tokyo <span class="badge tokyo">Nov 14–16 · 2 nights</span></h3>
+            <div class="stays-grid">
+                <div class="stay-card">
+                    <div class="stay-hotel">TBD</div>
+                    <div class="stay-guests">Everyone</div>
+                    <a href="#" class="stay-link">📍 View on Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SAVED PLACES ═══════════════ -->
+<section id="maps">
+    <div class="container">
+        <h2 class="section-title">Saved Places</h2>
+        <p class="section-sub">everyone's picks on Google Maps</p>
+        <div class="maps-grid">
+            <a href="#" class="map-link"><div class="map-avatar" style="background:var(--seoul);">N</div> Nicole's Picks</a>
+            <a href="#" class="map-link"><div class="map-avatar" style="background:var(--tokyo);">B</div> Ben's Picks</a>
+            <a href="#" class="map-link"><div class="map-avatar" style="background:var(--gujo);">A</div> Ashley's Picks</a>
+            <a href="#" class="map-link"><div class="map-avatar" style="background:var(--takayama);">M</div> Marissa's Picks</a>
+        </div>
+        <p class="maps-hint">
+            Create a list in Google Maps → tap Share → send the link to Ben and he'll add it here!
+        </p>
+    </div>
+</section>
+
+<!-- ═══════════════ COST ═══════════════ -->
+<section id="cost">
+    <div class="container">
+        <h2 class="section-title">How Much Will This Cost?</h2>
+        <p class="section-sub">realistic estimates in USD</p>
+
+        <div class="cost-grid">
+            <div class="cost-card">
+                <h3>✈️ Flights</h3>
+                <div class="cost-amount">$800 – $1,500</div>
+                <div class="cost-note">per person, round trip to Seoul + Seoul→Tokyo internal</div>
+            </div>
+            <div class="cost-card">
+                <h3>🏨 Accommodation</h3>
+                <div class="cost-amount">$1,200 – $2,000</div>
+                <div class="cost-note">per person, 14 nights. Sharing rooms saves a lot!</div>
+            </div>
+            <div class="cost-card">
+                <h3>🍜 Food & Drinks</h3>
+                <div class="cost-amount">$500 – $800</div>
+                <div class="cost-note">per person, 15 days. Street food & casual restaurants</div>
+            </div>
+            <div class="cost-card">
+                <h3>🎫 Activities & Transport</h3>
+                <div class="cost-amount">$400 – $600</div>
+                <div class="cost-note">Disneyland, trains, subways, day trips, museums</div>
+            </div>
+            <div class="cost-card">
+                <h3>🛍️ Shopping & Extras</h3>
+                <div class="cost-amount">$300 – $1,000+</div>
+                <div class="cost-note">Vintage shopping, souvenirs, tattoo — up to you!</div>
+            </div>
+            <div class="cost-card total">
+                <h3>💰 Estimated Total</h3>
+                <div class="cost-amount">$3,200 – $5,900</div>
+                <div class="cost-note">per person (excluding shopping). Budget travelers: ~$2,800</div>
+            </div>
+        </div>
+
+        <!-- Currency Converter -->
+        <div class="converter">
+            <h3>💱 Quick Currency Converter</h3>
+            <div class="converter-row">
+                <span>$</span>
+                <input type="number" id="usd-input" value="100" min="0" step="1">
+                <span>USD =</span>
+                <span class="converter-result" id="conv-result">loading...</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ PRACTICAL INFO ═══════════════ -->
+<section id="info">
+    <div class="container">
+        <h2 class="section-title">Practical Info</h2>
+        <p class="section-sub">stuff you'll actually need to know</p>
+
+        <div class="tips-section">
+            <h3>🌏 Both Countries</h3>
+            <div class="tips-grid">
+                <div class="tip-card"><strong>🚫 No Tipping</strong> Not done in either country. In Japan it can be rude.</div>
+                <div class="tip-card"><strong>🚶 No Jaywalking</strong> Both countries take this seriously. Always wait for the signal.</div>
+                <div class="tip-card"><strong>👟 Shoes Off Indoors</strong> Homes, some restaurants, temples. Look for shoe piles at the door.</div>
+                <div class="tip-card"><strong>🗑️ Trash Cans are Rare</strong> Carry a small bag for trash. Bins usually at convenience stores.</div>
+                <div class="tip-card"><strong>🍽️ Restaurant Etiquette</strong> Korea: go to counter to pay. Japan: shout "Sumimasen!" — it's normal.</div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>🇰🇷 South Korea</h3>
+            <div class="tips-grid">
+                <div class="tip-card"><strong>💳 T-Money Card</strong> Get at the airport. Works for subway, buses, taxis, convenience stores.</div>
+                <div class="tip-card"><strong>🗺️ Naver Maps</strong> Use instead of Google Maps. Google Maps doesn't work well in Korea.</div>
+                <div class="tip-card"><strong>🤝 Both Hands</strong> Give and receive things with both hands. It's polite and respectful.</div>
+                <div class="tip-card"><strong>🚕 Avoid Black Taxis</strong> They're "deluxe" and expensive. Use the Kakao Taxi app instead.</div>
+                <div class="tip-card"><strong>⚠️ Cult Awareness</strong> People approaching about "your aura" are often cult recruiters. Ignore politely.</div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>🇯🇵 Japan</h3>
+            <div class="tips-grid">
+                <div class="tip-card"><strong>💴 Cash is King</strong> Many places don't take cards. 7-Eleven ATMs work with foreign cards.</div>
+                <div class="tip-card"><strong>🚇 Suica/Pasmo Card</strong> Get at any station. Works for trains, subways, and vending machines.</div>
+                <div class="tip-card"><strong>🎫 JR Pass</strong> Consider a 7-day pass for the Tokyo–Takayama trains. Can save real money.</div>
+                <div class="tip-card"><strong>🍜 No Walking & Eating</strong> Find a spot to stop and eat, or eat at the shop/stall.</div>
+                <div class="tip-card"><strong>🤫 Quiet on Trains</strong> No phone calls. Silent mode. Text instead. Everyone follows this.</div>
+                <div class="tip-card"><strong>🧺 Carry a Hand Towel</strong> Many bathrooms lack paper towels. Most locals carry one.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section id="faq">
+    <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-sub">the questions everyone asks</p>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Do I need to speak Japanese or Korean?</summary>
+                <div class="faq-answer">Nope. Learn 4 phrases: "excuse me," "thank you," "sorry," and "that please" (while pointing). Google Translate's camera mode is incredible for menus and signs. Most big-city staff speak some English. Just be polite and try your best — they'll love you for it.</div>
+            </details>
+            <details class="faq-item">
+                <summary>What will the weather be like?</summary>
+                <div class="faq-answer">Cold! November is late autumn heading into early winter. Seoul: 37–54°F. Tokyo: 46–63°F. Mountains (Gujo/Takayama): 36–55°F. Pack layers — light jacket, a warmer layer for the mountains, comfortable walking shoes. We can buy cozy stuff there if needed.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Can I bring someone not on the list?</summary>
+                <div class="faq-answer">Yes! These are independent vacations that happen to be in the same places. Coordinate lodging with each other. Want to bring kids? Rent a house. Want adults only? Go more independent. Anything works.</div>
+            </details>
+            <details class="faq-item">
+                <summary>I want to go somewhere not on this itinerary!</summary>
+                <div class="faq-answer">Do it! This is what Nicole and I are doing — meet up with us whenever it works for you. Maybe you skip Takayama and do Kyoto instead. Maybe you just have a beer with us at Golden Gai. Totally fine.</div>
+            </details>
+            <details class="faq-item">
+                <summary>What should I pack?</summary>
+                <div class="faq-answer">Comfortable walking shoes (15,000+ steps/day), layers for varying temps, a light rain jacket, a daypack, and a portable battery pack. That's it. You can buy anything else there.</div>
+            </details>
+            <details class="faq-item">
+                <summary>What apps should I download?</summary>
+                <div class="faq-answer"><strong>Korea:</strong> Naver Maps, Papago (translator), Kakao Taxi. <strong>Japan:</strong> Google Maps, Google Translate (download offline languages). <strong>Both:</strong> Google Translate camera mode. <strong>Disney day:</strong> Tokyo Disney Resort app for wait times.</div>
+            </details>
+            <details class="faq-item">
+                <summary>What if I don't know everyone on this trip?</summary>
+                <div class="faq-answer">You know Ben and/or Nicole, and that's all you need. Everyone on this list is genuinely great. We have good taste in people, promise.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <p class="caveat">made with coffee and plane tickets</p>
+    <p>&copy; 2026 Ben Schoeffler</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════ -->
+<script>
+(function() {
+    'use strict';
+
+    /* ── Trip Data ── */
+    const TRIP_START = new Date('2026-11-01T23:00:00Z');
+    const tripDays = {
+        1:  { loc: 'transit',   label: 'Depart',    color: '#A0937D', wxCity: 'seoul',    id: null },
+        2:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
+        3:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
+        4:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
+        5:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
+        6:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
+        7:  { loc: 'transit',   label: '→ Tokyo',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
+        8:  { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
+        9:  { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
+        10: { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
+        11: { loc: 'transit',   label: '→ Gujo',    color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
+        12: { loc: 'gujo',      label: 'Gujo',      color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
+        13: { loc: 'takayama',  label: 'Takayama',  color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
+        14: { loc: 'transit',   label: '→ Tokyo',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
+        15: { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
+        16: { loc: 'transit',   label: 'Home ✈',    color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
+    };
+
+    const wxCoords = {
+        seoul:    { lat: 37.57, lon: 126.98 },
+        tokyo:    { lat: 35.68, lon: 139.69 },
+        gujo:     { lat: 35.75, lon: 136.96 },
+        takayama: { lat: 36.14, lon: 137.25 },
+    };
+
+    const histAvg = {
+        seoul:    { hi: 54, lo: 37 },
+        tokyo:    { hi: 63, lo: 46 },
+        gujo:     { hi: 55, lo: 36 },
+        takayama: { hi: 54, lo: 36 },
+    };
+
+    function wmoIcon(code) {
+        if (code === 0) return '☀️';
+        if (code <= 3)  return '⛅';
+        if (code <= 48) return '🌫️';
+        if (code <= 67) return '🌧️';
+        if (code <= 77) return '❄️';
+        if (code <= 82) return '🌧️';
+        return '⛈️';
+    }
+
+    /* ── Countdown + Clocks ── */
+    function updateCountdown() {
+        const diff = TRIP_START - new Date();
+        const days = Math.floor(diff / 864e5);
+        const el = document.getElementById('countdown');
+        if (days > 0) el.textContent = days + ' days until takeoff ✈️';
+        else if (days > -16) el.textContent = "We're on our adventure! 🌸";
+        else el.textContent = 'Trip complete — what a journey! 💕';
+    }
+    function updateClocks() {
+        const o = { hour: '2-digit', minute: '2-digit', hour12: true };
+        document.getElementById('seoul-time').textContent =
+            new Date().toLocaleTimeString('en-US', { ...o, timeZone: 'Asia/Seoul' });
+        document.getElementById('tokyo-time').textContent =
+            new Date().toLocaleTimeString('en-US', { ...o, timeZone: 'Asia/Tokyo' });
+    }
+    updateCountdown(); updateClocks();
+    setInterval(updateCountdown, 60000);
+    setInterval(updateClocks, 30000);
+
+    /* ── Calendar ── */
+    function buildCalendar() {
+        const grid = document.getElementById('cal-grid');
+        const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        dows.forEach(d => {
+            const el = document.createElement('div');
+            el.className = 'cal-dow';
+            el.textContent = d;
+            grid.appendChild(el);
+        });
+
+        // Nov 1 2026 = Sunday (day 0), 30 days
+        for (let d = 1; d <= 30; d++) {
+            const el = document.createElement('div');
+            el.className = 'cal-day';
+            const trip = tripDays[d];
+            if (trip) {
+                el.classList.add('trip');
+                el.style.background = trip.color;
+                el.innerHTML = `
+                    <span>${d}</span>
+                    <span class="cal-label">${trip.label}</span>
+                    <span class="cal-wx" id="cal-wx-${d}"></span>
+                `;
+                if (trip.id) {
+                    el.addEventListener('click', () => {
+                        document.getElementById(trip.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    });
+                }
+            } else {
+                el.textContent = d;
+            }
+            grid.appendChild(el);
+        }
+    }
+    buildCalendar();
+
+    /* ── Weather ── */
+    async function fetchWeather() {
+        const now = new Date();
+        const tripStart = new Date('2026-11-01');
+        const tripEnd = new Date('2026-11-16');
+        const forecastReach = new Date(now.getTime() + 16 * 864e5);
+
+        // Check if any trip dates are within forecast window
+        if (forecastReach < tripStart) {
+            // Too far out — use historical averages
+            applyHistoricalWeather();
+            document.getElementById('wx-note').textContent = 'Showing historical averages. Live forecasts appear ~2 weeks before the trip.';
+            return;
+        }
+
+        document.getElementById('wx-note').textContent = 'Live weather from Open-Meteo';
+        const cities = Object.keys(wxCoords);
+        const forecasts = {};
+
+        try {
+            await Promise.all(cities.map(async city => {
+                const c = wxCoords[city];
+                const res = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}` +
+                    `&daily=temperature_2m_max,temperature_2m_min,weathercode` +
+                    `&timezone=auto&forecast_days=16&temperature_unit=fahrenheit`
+                );
+                const data = await res.json();
+                forecasts[city] = {};
+                if (data.daily) {
+                    data.daily.time.forEach((date, i) => {
+                        const day = parseInt(date.split('-')[2]);
+                        if (day >= 1 && day <= 16) {
+                            forecasts[city][day] = {
+                                hi: Math.round(data.daily.temperature_2m_max[i]),
+                                lo: Math.round(data.daily.temperature_2m_min[i]),
+                                icon: wmoIcon(data.daily.weathercode[i]),
+                            };
+                        }
+                    });
+                }
+            }));
+
+            // Apply to calendar and day cards
+            for (let d = 1; d <= 16; d++) {
+                const trip = tripDays[d];
+                if (!trip) continue;
+                const cityFc = forecasts[trip.wxCity];
+                const wx = cityFc && cityFc[d];
+                if (wx) {
+                    applyWeatherToDay(d, wx, trip);
+                } else {
+                    const avg = histAvg[trip.wxCity];
+                    applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip);
+                }
+            }
+        } catch (e) {
+            console.warn('Weather fetch failed, using historical:', e);
+            applyHistoricalWeather();
+            document.getElementById('wx-note').textContent = 'Showing historical averages (weather API unavailable).';
+        }
+    }
+
+    function applyHistoricalWeather() {
+        for (let d = 1; d <= 16; d++) {
+            const trip = tripDays[d];
+            if (!trip) continue;
+            const avg = histAvg[trip.wxCity];
+            applyWeatherToDay(d, { hi: avg.hi, lo: avg.lo, icon: '⛅' }, trip);
+        }
+    }
+
+    function applyWeatherToDay(d, wx, trip) {
+        // Calendar cell
+        const calEl = document.getElementById(`cal-wx-${d}`);
+        if (calEl) calEl.textContent = `${wx.icon} ${wx.hi}°`;
+        // Day card
+        const dayNum = d - 1; // day card numbering is 1-indexed starting from Nov 2
+        const wxEl = document.getElementById(`wx-${dayNum}`);
+        if (wxEl) wxEl.textContent = `${wx.icon} ${wx.hi}°/${wx.lo}°F`;
+    }
+    fetchWeather();
+
+    /* ── Currency Converter ── */
+    let rates = null;
+    async function fetchRates() {
+        try {
+            const res = await fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY,KRW');
+            const data = await res.json();
+            rates = data.rates;
+            convert();
+        } catch (e) {
+            document.getElementById('conv-result').textContent = '(offline — try again later)';
+        }
+    }
+    function convert() {
+        if (!rates) return;
+        const usd = parseFloat(document.getElementById('usd-input').value) || 0;
+        const jpy = Math.round(usd * rates.JPY).toLocaleString();
+        const krw = Math.round(usd * rates.KRW).toLocaleString();
+        document.getElementById('conv-result').innerHTML =
+            `<strong>¥${jpy}</strong> JPY &nbsp;·&nbsp; <strong>₩${krw}</strong> KRW`;
+    }
+    fetchRates();
+    let convTimer;
+    document.getElementById('usd-input').addEventListener('input', () => {
+        clearTimeout(convTimer);
+        convTimer = setTimeout(convert, 200);
+    });
+
+    /* ── Smooth Scroll + Scroll Spy ── */
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
+})();
+</script>
 </body>
 </html>
