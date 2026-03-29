@@ -211,7 +211,7 @@ section:nth-child(even) { background: var(--bg-warm); }
     border-radius: var(--r);
     box-shadow: var(--shadow-lg);
     padding: 1.5rem;
-    max-width: 600px;
+    max-width: 820px;
     margin: 0 auto;
 }
 .cal-header {
@@ -223,7 +223,7 @@ section:nth-child(even) { background: var(--bg-warm); }
 .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
+    gap: 5px;
 }
 .cal-dow {
     text-align: center;
@@ -235,11 +235,12 @@ section:nth-child(even) { background: var(--bg-warm); }
     padding: 0.4rem 0;
 }
 .cal-day {
-    aspect-ratio: 1;
+    min-height: 70px;
     border-radius: var(--r-sm);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    font-size: 0.85rem; font-weight: 600;
+    padding: 0.35rem 0.2rem;
+    font-size: 0.9rem; font-weight: 600;
     color: var(--text-light);
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -251,21 +252,21 @@ section:nth-child(even) { background: var(--bg-warm); }
     font-weight: 700;
 }
 .cal-day.trip:hover {
-    transform: scale(1.12);
+    transform: scale(1.08);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 2;
 }
 .cal-day .cal-label {
-    font-size: 0.55rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.85;
-    margin-top: 2px;
-    line-height: 1;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
+    margin-top: 3px;
+    line-height: 1.15;
+    text-align: center;
 }
 .cal-day .cal-wx {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     opacity: 0.95;
     margin-top: 2px;
     line-height: 1;
@@ -753,8 +754,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
    ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
     .hero { padding: 3.5rem 0 2.5rem; }
-    .cal-wrap { padding: 1rem; }
-    .cal-day { font-size: 0.75rem; }
+    .cal-wrap { padding: 0.75rem; }
+    .cal-day { font-size: 0.75rem; min-height: 58px; padding: 0.25rem 0.1rem; }
+    .cal-day .cal-label { font-size: 0.48rem; }
+    .cal-day .cal-wx { font-size: 0.5rem; }
     .day-top { flex-wrap: wrap; }
     .day-num { font-size: 1.4rem; min-width: 1.8rem; }
     .city-header img { width: 44px; height: 44px; }
@@ -1619,22 +1622,22 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
     /* ── Trip Data ── */
     const TRIP_START = new Date('2026-11-01T23:00:00Z');
     const tripDays = {
-        1:  { loc: 'transit',   label: 'Depart',    color: '#A0937D', wxCity: 'seoul',    id: null },
-        2:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
-        3:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
-        4:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
-        5:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
-        6:  { loc: 'seoul',     label: 'Seoul',     color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
-        7:  { loc: 'transit',   label: '→ Tokyo',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
-        8:  { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
-        9:  { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
-        10: { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
-        11: { loc: 'transit',   label: '→ Gujo',    color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
-        12: { loc: 'gujo',      label: 'Gujo',      color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
-        13: { loc: 'takayama',  label: 'Takayama',  color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
-        14: { loc: 'transit',   label: '→ Tokyo',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
-        15: { loc: 'tokyo',     label: 'Tokyo',     color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
-        16: { loc: 'transit',   label: 'Home ✈',    color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
+        1:  { loc: 'transit',   label: 'Depart ✈️',    color: '#A0937D', wxCity: 'seoul',    id: null },
+        2:  { loc: 'seoul',     label: 'Arrival',       color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
+        3:  { loc: 'seoul',     label: 'Markets',       color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
+        4:  { loc: 'seoul',     label: 'K-Beauty',      color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
+        5:  { loc: 'seoul',     label: 'Tattoo Day',    color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
+        6:  { loc: 'seoul',     label: 'Nami Island',   color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
+        7:  { loc: 'transit',   label: '→ Tokyo',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
+        8:  { loc: 'tokyo',     label: 'Vintage',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
+        9:  { loc: 'tokyo',     label: 'Disneyland!',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
+        10: { loc: 'tokyo',     label: 'Golden Gai',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
+        11: { loc: 'transit',   label: '→ Mountains',   color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
+        12: { loc: 'gujo',      label: 'Koi Town',      color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
+        13: { loc: 'takayama',  label: 'Sake & Beef',   color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
+        14: { loc: 'transit',   label: '→ Tokyo',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
+        15: { loc: 'tokyo',     label: 'Last Day',      color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
+        16: { loc: 'transit',   label: 'Fly Home ✈️',   color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
     };
 
     const wxCoords = {
