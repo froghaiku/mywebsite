@@ -265,6 +265,11 @@ section:nth-child(even) { background: var(--bg-warm); }
     line-height: 1.15;
     text-align: center;
 }
+.cal-label .lbl-short { display: none; }
+@media (max-width: 640px) {
+    .cal-label .lbl-full { display: none; }
+    .cal-label .lbl-short { display: inline; }
+}
 .cal-day .cal-wx {
     font-size: 0.62rem;
     opacity: 0.95;
@@ -754,10 +759,12 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
    ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
     .hero { padding: 3.5rem 0 2.5rem; }
-    .cal-wrap { padding: 0.75rem; }
-    .cal-day { font-size: 0.75rem; min-height: 58px; padding: 0.25rem 0.1rem; }
-    .cal-day .cal-label { font-size: 0.48rem; }
-    .cal-day .cal-wx { font-size: 0.5rem; }
+    .cal-wrap { padding: 0.5rem; margin-left: -0.5rem; margin-right: -0.5rem; border-radius: var(--r-sm); }
+    .cal-grid { gap: 3px; }
+    .cal-day { font-size: 0.72rem; min-height: auto; padding: 0.25rem 0.1rem; }
+    .cal-day .cal-label { font-size: 0.44rem; margin-top: 1px; }
+    .cal-day .cal-wx { font-size: 0.48rem; margin-top: 1px; }
+    .cal-dow { font-size: 0.55rem; padding: 0.25rem 0; }
     .day-top { flex-wrap: wrap; }
     .day-num { font-size: 1.4rem; min-width: 1.8rem; }
     .city-header img { width: 44px; height: 44px; }
@@ -1622,22 +1629,22 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
     /* ── Trip Data ── */
     const TRIP_START = new Date('2026-11-01T23:00:00Z');
     const tripDays = {
-        1:  { loc: 'transit',   label: 'Depart ✈️',    color: '#A0937D', wxCity: 'seoul',    id: null },
-        2:  { loc: 'seoul',     label: 'Arrival',       color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
-        3:  { loc: 'seoul',     label: 'Markets',       color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
-        4:  { loc: 'seoul',     label: 'K-Beauty',      color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
-        5:  { loc: 'seoul',     label: 'Tattoo Day',    color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
-        6:  { loc: 'seoul',     label: 'Nami Island',   color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
-        7:  { loc: 'transit',   label: '→ Tokyo',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
-        8:  { loc: 'tokyo',     label: 'Vintage',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
-        9:  { loc: 'tokyo',     label: 'Disneyland!',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
-        10: { loc: 'tokyo',     label: 'Golden Gai',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
-        11: { loc: 'transit',   label: '→ Mountains',   color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
-        12: { loc: 'gujo',      label: 'Koi Town',      color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
-        13: { loc: 'takayama',  label: 'Sake & Beef',   color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
-        14: { loc: 'transit',   label: '→ Tokyo',       color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
-        15: { loc: 'tokyo',     label: 'Last Day',      color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
-        16: { loc: 'transit',   label: 'Fly Home ✈️',   color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
+        1:  { loc: 'transit',   label: 'Depart ✈️',    short: '✈️',      color: '#A0937D', wxCity: 'seoul',    id: null },
+        2:  { loc: 'seoul',     label: 'Arrival',       short: 'Arrive',  color: '#D4726A', wxCity: 'seoul',    id: 'day1' },
+        3:  { loc: 'seoul',     label: 'Markets',       short: 'Mkts',    color: '#D4726A', wxCity: 'seoul',    id: 'day2' },
+        4:  { loc: 'seoul',     label: 'K-Beauty',      short: 'K-Bty',   color: '#D4726A', wxCity: 'seoul',    id: 'day3' },
+        5:  { loc: 'seoul',     label: 'Tattoo Day',    short: 'Tattoo',  color: '#D4726A', wxCity: 'seoul',    id: 'day4' },
+        6:  { loc: 'seoul',     label: 'Nami Island',   short: 'Nami',    color: '#D4726A', wxCity: 'seoul',    id: 'day5' },
+        7:  { loc: 'transit',   label: '→ Tokyo',       short: '→TKY',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day6' },
+        8:  { loc: 'tokyo',     label: 'Vintage',       short: 'Vintg',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day7' },
+        9:  { loc: 'tokyo',     label: 'Disneyland!',   short: 'Disney',  color: '#6B8EAE', wxCity: 'tokyo',    id: 'day8' },
+        10: { loc: 'tokyo',     label: 'Golden Gai',    short: 'G.Gai',   color: '#6B8EAE', wxCity: 'tokyo',    id: 'day9' },
+        11: { loc: 'transit',   label: '→ Mountains',   short: '→Mtn',    color: '#7BA584', wxCity: 'gujo',     id: 'day10' },
+        12: { loc: 'gujo',      label: 'Koi Town',      short: 'Koi',     color: '#7BA584', wxCity: 'gujo',     id: 'day11' },
+        13: { loc: 'takayama',  label: 'Sake & Beef',   short: 'Sake',    color: '#9B7DB8', wxCity: 'takayama', id: 'day12' },
+        14: { loc: 'transit',   label: '→ Tokyo',       short: '→TKY',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day13' },
+        15: { loc: 'tokyo',     label: 'Last Day',      short: 'Last',    color: '#6B8EAE', wxCity: 'tokyo',    id: 'day14' },
+        16: { loc: 'transit',   label: 'Fly Home ✈️',   short: 'Home',    color: '#A0937D', wxCity: 'tokyo',    id: 'day15' },
     };
 
     const wxCoords = {
@@ -1705,7 +1712,7 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
                 el.style.background = trip.color;
                 el.innerHTML = `
                     <span>${d}</span>
-                    <span class="cal-label">${trip.label}</span>
+                    <span class="cal-label"><span class="lbl-full">${trip.label}</span><span class="lbl-short">${trip.short}</span></span>
                     <span class="cal-wx" id="cal-wx-${d}"></span>
                 `;
                 if (trip.id) {
