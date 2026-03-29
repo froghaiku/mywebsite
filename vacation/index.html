@@ -387,23 +387,19 @@ section:nth-child(even) { background: var(--bg-warm); }
 .day-card.transit { border-left-color: var(--transit); }
 
 .day-top {
-    display: flex; align-items: flex-start; gap: 0.75rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 0.5rem; flex-wrap: wrap;
 }
-.day-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    line-height: 1;
-    color: var(--accent);
-    min-width: 2.2rem;
+.day-date-line {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-mid);
 }
-.day-info { flex: 1; }
+.day-info { width: 100%; }
 .day-info h3 {
     font-size: 1.15rem;
-    margin-bottom: 0.15rem;
-}
-.day-meta {
-    font-size: 0.8rem;
-    color: var(--text-light);
+    margin-top: 0.3rem;
 }
 .badge {
     display: inline-block;
@@ -443,12 +439,11 @@ section:nth-child(even) { background: var(--bg-warm); }
 .day-summary {
     font-size: 0.9rem;
     color: var(--text-mid);
-    margin: 0.6rem 0 0;
-    padding-left: 2.95rem;
+    margin: 0.4rem 0 0;
 }
 /* Polaroid image on select days */
 .day-photo {
-    margin: 1rem 0 0.5rem 2.95rem;
+    margin: 1rem 0 0.5rem 0;
     display: inline-block;
     background: #fff;
     padding: 6px 6px 28px;
@@ -471,7 +466,7 @@ section:nth-child(even) { background: var(--bg-warm); }
 
 /* Expandable recs */
 .day-recs {
-    margin: 0.75rem 0 0 2.95rem;
+    margin: 0.75rem 0 0 0;
 }
 .day-recs summary {
     font-size: 0.82rem;
@@ -528,7 +523,6 @@ section:nth-child(even) { background: var(--bg-warm); }
 
 @media (max-width: 600px) {
     .recs-grid { grid-template-columns: 1fr; }
-    .day-summary, .day-recs, .day-photo { padding-left: 0; margin-left: 0; }
 }
 
 /* ═══════════════════════════════════════════
@@ -897,13 +891,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 1 -->
         <div class="day-card seoul" id="day1">
             <div class="day-top">
-                <span class="day-num">1</span>
-                <div class="day-info">
-                    <h3>Arrival & Recovery</h3>
-                    <span class="day-meta">Mon, Nov 2 · <span class="badge seoul">Seoul</span></span>
-                </div>
+                <div class="day-date-line">Mon, Nov 2 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-1"></div>
             </div>
+            <div class="day-info"><h3>Arrival & Recovery</h3></div>
             <p class="day-summary">Land in Seoul → settle into hotel → neighborhood walk → first Korean meal → early bed</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -929,13 +920,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 2 -->
         <div class="day-card seoul" id="day2">
             <div class="day-top">
-                <span class="day-num">2</span>
-                <div class="day-info">
-                    <h3>Markets & Traditional Seoul</h3>
-                    <span class="day-meta">Tue, Nov 3 · <span class="badge seoul">Seoul</span></span>
-                </div>
+                <div class="day-date-line">Tue, Nov 3 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-2"></div>
             </div>
+            <div class="day-info"><h3>Markets & Traditional Seoul</h3></div>
             <p class="day-summary">Gwangjang Market street food → Ikseon-dong hanok cafes & shops</p>
             <div class="day-photo"><img src="/assets/images/vacation/Ikseon-dong-6.jpg" alt="Ikseon-dong"><span class="caption">Ikseon-dong alleyways</span></div>
             <details class="day-recs">
@@ -965,13 +953,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 3 -->
         <div class="day-card seoul" id="day3">
             <div class="day-top">
-                <span class="day-num">3</span>
-                <div class="day-info">
-                    <h3>K-Beauty & Vintage</h3>
-                    <span class="day-meta">Wed, Nov 4 · <span class="badge seoul">Seoul</span></span>
-                </div>
+                <div class="day-date-line">Wed, Nov 4 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-3"></div>
             </div>
+            <div class="day-info"><h3>K-Beauty & Vintage</h3></div>
             <p class="day-summary">Seongsu-dong coffee & beauty flagships → Hongdae street food & nightlife</p>
             <div class="day-photo"><img src="/assets/images/vacation/Seongsu-dong.jpg" alt="Seongsu-dong"><span class="caption">Seongsu-dong vibes</span></div>
             <details class="day-recs">
@@ -1000,13 +985,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 4 -->
         <div class="day-card seoul" id="day4">
             <div class="day-top">
-                <span class="day-num">4</span>
-                <div class="day-info">
-                    <h3>Tattoo Day</h3>
-                    <span class="day-meta">Thu, Nov 5 · <span class="badge seoul">Seoul</span></span>
-                </div>
+                <div class="day-date-line">Thu, Nov 5 · <span class="badge seoul">Seoul</span></div>
                 <div class="day-wx" id="wx-4"></div>
             </div>
+            <div class="day-info"><h3>Tattoo Day</h3></div>
             <p class="day-summary">Nicole's tattoo appointment (Hongdae) → Dongmyo Flea Market → Myeongdong evening</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1031,13 +1013,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 5 -->
         <div class="day-card seoul" id="day5">
             <div class="day-top">
-                <span class="day-num">5</span>
-                <div class="day-info">
-                    <h3>Nami Island & Gardens</h3>
-                    <span class="day-meta">Fri, Nov 6 · <span class="badge seoul">Gapyeong Day Trip</span></span>
-                </div>
+                <div class="day-date-line">Fri, Nov 6 · <span class="badge seoul">Gapyeong Day Trip</span></div>
                 <div class="day-wx" id="wx-5"></div>
             </div>
+            <div class="day-info"><h3>Nami Island & Gardens</h3></div>
             <p class="day-summary">Train to Gapyeong → Nami Island tree-lined paths → Garden of Morning Calm</p>
             <div class="day-photo"><img src="/assets/images/vacation/garden%20of%20morning%20calm.webp" alt="Garden of Morning Calm"><span class="caption">Garden of Morning Calm</span></div>
             <details class="day-recs">
@@ -1064,13 +1043,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 6 (Transit) -->
         <div class="day-card transit" id="day6">
             <div class="day-top">
-                <span class="day-num">6</span>
-                <div class="day-info">
-                    <h3>Seoul → Tokyo</h3>
-                    <span class="day-meta">Sat, Nov 7 · <span class="badge transit">Transit</span></span>
-                </div>
+                <div class="day-date-line">Sat, Nov 7 · <span class="badge transit">Transit</span></div>
                 <div class="day-wx" id="wx-6"></div>
             </div>
+            <div class="day-info"><h3>Seoul → Tokyo</h3></div>
             <p class="day-summary">Morning flight to Tokyo → settle in → explore neighborhood → first ramen!</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1104,13 +1080,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 7 -->
         <div class="day-card tokyo" id="day7">
             <div class="day-top">
-                <span class="day-num">7</span>
-                <div class="day-info">
-                    <h3>Vintage & Books</h3>
-                    <span class="day-meta">Sun, Nov 8 · <span class="badge tokyo">Tokyo</span></span>
-                </div>
+                <div class="day-date-line">Sun, Nov 8 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-7"></div>
             </div>
+            <div class="day-info"><h3>Vintage & Books</h3></div>
             <p class="day-summary">Shimokitazawa vintage shops → Daikanyama Tsutaya Books → cozy cafes</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1137,13 +1110,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 8 -->
         <div class="day-card tokyo" id="day8">
             <div class="day-top">
-                <span class="day-num">8</span>
-                <div class="day-info">
-                    <h3>Tokyo Disneyland!</h3>
-                    <span class="day-meta">Mon, Nov 9 · <span class="badge tokyo">Tokyo</span></span>
-                </div>
+                <div class="day-date-line">Mon, Nov 9 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-8"></div>
             </div>
+            <div class="day-info"><h3>Tokyo Disneyland!</h3></div>
             <p class="day-summary">Full day of magic! Arrive at opening, stay for fireworks</p>
             <div class="day-photo"><img src="/assets/images/vacation/Tokyo%20Disneyland.jpg" alt="Tokyo Disneyland"><span class="caption">The happiest place</span></div>
             <details class="day-recs">
@@ -1172,13 +1142,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 9 -->
         <div class="day-card tokyo" id="day9">
             <div class="day-top">
-                <span class="day-num">9</span>
-                <div class="day-info">
-                    <h3>Classic Tokyo</h3>
-                    <span class="day-meta">Tue, Nov 10 · <span class="badge tokyo">Tokyo</span></span>
-                </div>
+                <div class="day-date-line">Tue, Nov 10 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-9"></div>
             </div>
+            <div class="day-info"><h3>Classic Tokyo</h3></div>
             <p class="day-summary">Senso-ji Temple in Asakusa → Ueno Park → evening bar-hopping in Golden Gai</p>
             <div class="day-photo"><img src="/assets/images/vacation/Golden%20Gai%20alley.jpg" alt="Golden Gai"><span class="caption">Golden Gai at night</span></div>
             <details class="day-recs">
@@ -1207,13 +1174,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 10 (Transit) -->
         <div class="day-card transit" id="day10">
             <div class="day-top">
-                <span class="day-num">10</span>
-                <div class="day-info">
-                    <h3>Into the Mountains</h3>
-                    <span class="day-meta">Wed, Nov 11 · <span class="badge transit">Tokyo → Gujo</span></span>
-                </div>
+                <div class="day-date-line">Wed, Nov 11 · <span class="badge transit">Tokyo → Gujo</span></div>
                 <div class="day-wx" id="wx-10"></div>
             </div>
+            <div class="day-info"><h3>Into the Mountains</h3></div>
             <p class="day-summary">Shinkansen to Nagoya → bus to Gujo Hachiman → evening stroll with koi in the canals</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1247,13 +1211,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 11 -->
         <div class="day-card gujo" id="day11">
             <div class="day-top">
-                <span class="day-num">11</span>
-                <div class="day-info">
-                    <h3>Koi Fish Town</h3>
-                    <span class="day-meta">Thu, Nov 12 · <span class="badge gujo">Gujo Hachiman</span></span>
-                </div>
+                <div class="day-date-line">Thu, Nov 12 · <span class="badge gujo">Gujo Hachiman</span></div>
                 <div class="day-wx" id="wx-11"></div>
             </div>
+            <div class="day-info"><h3>Koi Fish Town</h3></div>
             <p class="day-summary">Koi canal walk → castle with autumn leaves → food replica workshop → zen temple</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1280,13 +1241,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 12 -->
         <div class="day-card takayama" id="day12">
             <div class="day-top">
-                <span class="day-num">12</span>
-                <div class="day-info">
-                    <h3>Little Kyoto of the Mountains</h3>
-                    <span class="day-meta">Fri, Nov 13 · <span class="badge takayama">Takayama</span></span>
-                </div>
+                <div class="day-date-line">Fri, Nov 13 · <span class="badge takayama">Takayama</span></div>
                 <div class="day-wx" id="wx-12"></div>
             </div>
+            <div class="day-info"><h3>Little Kyoto of the Mountains</h3></div>
             <p class="day-summary">Morning markets → sake brewery tastings → Hida beef lunch → old town streets</p>
             <div class="day-photo"><img src="/assets/images/vacation/Takayama%20Morning%20Markets.jpg" alt="Takayama"><span class="caption">Miyagawa Morning Market</span></div>
             <details class="day-recs">
@@ -1315,13 +1273,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 13 (Transit) -->
         <div class="day-card transit" id="day13">
             <div class="day-top">
-                <span class="day-num">13</span>
-                <div class="day-info">
-                    <h3>Back to Tokyo</h3>
-                    <span class="day-meta">Sat, Nov 14 · <span class="badge transit">Gujo → Tokyo</span></span>
-                </div>
+                <div class="day-date-line">Sat, Nov 14 · <span class="badge transit">Gujo → Tokyo</span></div>
                 <div class="day-wx" id="wx-13"></div>
             </div>
+            <div class="day-info"><h3>Back to Tokyo</h3></div>
             <p class="day-summary">Last morning canal walk → train to Tokyo → final evening together</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1355,13 +1310,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 14 -->
         <div class="day-card tokyo" id="day14">
             <div class="day-top">
-                <span class="day-num">14</span>
-                <div class="day-info">
-                    <h3>Last Tokyo Day</h3>
-                    <span class="day-meta">Sun, Nov 15 · <span class="badge tokyo">Tokyo</span></span>
-                </div>
+                <div class="day-date-line">Sun, Nov 15 · <span class="badge tokyo">Tokyo</span></div>
                 <div class="day-wx" id="wx-14"></div>
             </div>
+            <div class="day-info"><h3>Last Tokyo Day</h3></div>
             <p class="day-summary">Final shopping → revisit favorites → farewell dinner</p>
             <details class="day-recs">
                 <summary>Eat & Explore</summary>
@@ -1388,13 +1340,10 @@ footer .caveat { font-size: 1.1rem; color: var(--accent); }
         <!-- Day 15 -->
         <div class="day-card transit" id="day15">
             <div class="day-top">
-                <span class="day-num">15</span>
-                <div class="day-info">
-                    <h3>Fly Home</h3>
-                    <span class="day-meta">Mon, Nov 16 · <span class="badge transit">Heading Home</span></span>
-                </div>
+                <div class="day-date-line">Mon, Nov 16 · <span class="badge transit">Heading Home</span></div>
                 <div class="day-wx" id="wx-15"></div>
             </div>
+            <div class="day-info"><h3>Fly Home</h3></div>
             <p class="day-summary">Final breakfast → head to airport → fly home. Arrive in the USA same day (thanks, time zones!) ✈️</p>
         </div>
 
